@@ -2,760 +2,859 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Yamaha Sai Motors | Flagship Showroom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Yamaha Sai Motors | Official Flagship Landing & Showroom</title>
+  
   <!-- Bootstrap 5 CSS & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Google Fonts: Montserrat & Rajdhani -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --yamaha-navy: #050811;
-      --yamaha-surface: #0E1626;
-      --yamaha-surface-glass: rgba(14, 22, 38, 0.78);
-      --yamaha-card: rgba(20, 31, 54, 0.65);
-      --yamaha-card-hover: rgba(28, 44, 76, 0.85);
+      --yamaha-navy: #05080F;
+      --yamaha-surface: #0B111E;
+      --yamaha-card: rgba(16, 25, 44, 0.75);
+      --yamaha-card-hover: rgba(22, 35, 62, 0.95);
       --yamaha-blue: #0044EE;
+      --yamaha-racing-blue: #002B7F;
       --yamaha-cyan: #00F0FF;
+      --yamaha-cyan-glow: rgba(0, 240, 255, 0.35);
       --yamaha-red: #E60012;
       --text-main: #FFFFFF;
-      --text-muted: #8E9DB5;
-      --border-glow: rgba(0, 240, 255, 0.35);
+      --text-muted: #95A5BE;
+      --border-glow: rgba(0, 240, 255, 0.28);
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --neon-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --blur-strength: blur(16px);
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
       background-color: var(--yamaha-navy);
       color: var(--text-main);
       font-family: 'Montserrat', sans-serif;
-      min-height: 100vh;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 12% 18%, rgba(0, 68, 238, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 88% 70%, rgba(0, 240, 255, 0.10) 0%, transparent 45%),
-        linear-gradient(180deg, #050811 0%, #090F1C 100%);
+        radial-gradient(circle at 10% 12%, rgba(0, 68, 238, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 60%, rgba(0, 240, 255, 0.15) 0%, transparent 55%),
+        linear-gradient(180deg, #05080F 0%, #080D18 50%, #05080F 100%);
       background-attachment: fixed;
     }
-    .font-racing { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: var(--yamaha-navy); }
-    ::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.35); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--yamaha-cyan); }
+    .font-racing {
+      font-family: 'Rajdhani', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-    /* Header */
-    header.clean-header {
-      background: rgba(7, 11, 20, 0.90);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    /* Glassmorphism Classes */
+    .glass-header {
+      background: rgba(5, 8, 15, 0.88);
+      backdrop-filter: var(--blur-strength);
+      -webkit-backdrop-filter: var(--blur-strength);
       border-bottom: 1px solid var(--border-glow);
+    }
+
+    .glass-card {
+      background: var(--yamaha-card);
+      backdrop-filter: var(--blur-strength);
+      -webkit-backdrop-filter: var(--blur-strength);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+    }
+
+    /* Header & Brand */
+    header {
       position: sticky;
       top: 0;
       z-index: 1030;
-      height: 62px;
-      display: flex;
-      align-items: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
     }
-    .brand-logo-symbol { height: 38px; width: auto; object-fit: contain; }
-
-    /* Master Desktop Grid (320px sidebar + flex stage) */
-    .showroom-grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      min-height: calc(100vh - 62px);
-      max-width: 1720px;
-      margin: 0 auto;
-      width: 100%;
+    .brand-logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
     }
-    .models-list-group {
-      background: var(--yamaha-surface-glass);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-right: 1px solid var(--border-glow);
-      max-height: calc(100vh - 62px);
-      overflow-y: auto;
-      position: sticky;
-      top: 62px;
+    @media (max-width: 576px) {
+      .brand-logo { height: 32px; }
     }
 
-    /* Live Search */
-    .search-box-wrapper { position: relative; }
-    .search-input-field {
-      background-color: rgba(7, 11, 20, 0.8) !important;
-      border: 1px solid var(--border-subtle) !important;
-      color: #fff !important;
-      border-radius: 10px;
-      padding: 9px 36px 9px 36px;
-      font-size: 0.85rem;
-      transition: all 0.25s var(--ease);
+    /* Offcanvas Navigation for Mobile/Tablet */
+    .offcanvas {
+      background: rgba(7, 12, 22, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-left: 1px solid var(--border-glow);
     }
-    .search-input-field:focus {
-      border-color: var(--yamaha-cyan) !important;
-      box-shadow: var(--neon-shadow) !important;
-    }
-    .search-icon-left {
-      position: absolute;
-      top: 50%;
-      left: 12px;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      pointer-events: none;
-    }
-    .clear-search-btn {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      display: none;
-    }
-
-    /* Model Sidebar Item */
-    .model-sidebar-item {
-      background: var(--yamaha-card);
-      border: 1px solid var(--border-subtle);
+    .mobile-nav-link {
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 0.75rem 1rem;
       border-radius: 12px;
-      margin-bottom: 7px;
-      color: #fff;
-      cursor: pointer;
-      transition: all 0.25s var(--ease);
-    }
-    .model-sidebar-item:hover {
-      background: var(--yamaha-card-hover);
-      border-color: rgba(0, 240, 255, 0.5);
-      transform: translateX(3px);
-    }
-    .model-sidebar-item.active {
-      background: linear-gradient(90deg, rgba(0, 68, 238, 0.8), rgba(0, 240, 255, 0.3));
-      border-color: var(--yamaha-cyan);
-      box-shadow: 0 4px 18px rgba(0, 240, 255, 0.28);
-      transform: translateX(5px);
-    }
-
-    /* Stage Cards */
-    .stage-card {
-      background: var(--yamaha-surface-glass);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-      transition: border-color 0.3s ease;
-    }
-    .stage-card:hover { border-color: rgba(0, 240, 255, 0.35); }
-
-    /* Responsive Viewport Sizing (16:9 ratio, max 520px) */
-    .media-viewport {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      max-height: 520px;
-      background: radial-gradient(circle at 50% 65%, #182846 0%, #050811 88%);
-      position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 16px 16px 0 0;
+      gap: 12px;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .mobile-nav-link:hover, .mobile-nav-link.active {
+      background: rgba(0, 68, 238, 0.2);
+      color: var(--yamaha-cyan);
+      border-left: 4px solid var(--yamaha-cyan);
+    }
+
+    /* Hero Section */
+    .hero-carousel-section {
+      position: relative;
+      height: 72vh;
+      min-height: 480px;
+      max-height: 720px;
       overflow: hidden;
-      border-bottom: 1px solid var(--border-glow);
     }
-    .main-bike-img {
-      max-height: 85%;
-      max-width: 88%;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.9));
-      transition: transform 0.4s var(--ease);
-    }
-    .main-bike-img:hover { transform: scale(1.04); }
-
-    .video-frame-container {
-      width: 100%;
-      height: 100%;
-      background: #000;
-    }
-    .video-frame-container iframe,
-    .video-frame-container video {
-      width: 100%;
-      height: 100%;
-      border: none;
-      object-fit: contain;
-    }
-
-    .slide-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(14, 22, 38, 0.85);
-      border: 1px solid var(--border-glow);
-      color: #fff;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 5;
-      transition: all 0.25s ease;
-    }
-    .slide-nav-btn:hover {
-      background: var(--yamaha-blue);
-      box-shadow: 0 0 14px var(--yamaha-cyan);
-      transform: translateY(-50%) scale(1.08);
-    }
-
-    /* Swatches & Thumbnails */
-    .color-swatch-circle {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.2s var(--ease);
-    }
-    .color-swatch-circle:hover { transform: scale(1.15); }
-    .color-swatch-circle.active {
-      border-color: var(--yamaha-cyan);
-      box-shadow: 0 0 14px var(--yamaha-cyan);
-      transform: scale(1.2);
-    }
-    .color-swatch-circle.active::after {
-      content: '✓';
+    .hero-slide {
       position: absolute;
       inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.4s ease;
+      transform: scale(1.06);
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 0.72rem;
-      font-weight: 900;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(5, 8, 15, 0.96) 0%, rgba(5, 8, 15, 0.75) 55%, rgba(5, 8, 15, 0.35) 100%);
+    }
+    @media (max-width: 768px) {
+      .hero-carousel-section {
+        height: 65vh;
+        min-height: 450px;
+      }
+      .hero-overlay {
+        background: linear-gradient(180deg, rgba(5, 8, 15, 0.75) 0%, rgba(5, 8, 15, 0.95) 90%);
+      }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
     }
 
-    .thumb-btn {
-      width: 64px;
-      height: 44px;
-      border-radius: 8px;
-      border: 1px solid var(--border-subtle);
-      background: #000;
-      overflow: hidden;
-      padding: 2px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-    }
-    .thumb-btn.active {
-      border-color: var(--yamaha-cyan);
-      box-shadow: 0 0 12px rgba(0,240,255,0.45);
-      transform: translateY(-2px);
-    }
-    .thumb-btn.video-thumb {
-      border-color: var(--yamaha-red);
-      background: linear-gradient(135deg, rgba(230,0,18,0.25), #070B14);
+    .hero-nav-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--yamaha-red);
-      font-size: 1.25rem;
+      gap: 8px;
+      z-index: 10;
     }
-    .thumb-btn.video-thumb.active {
-      border-color: var(--yamaha-cyan);
-      color: var(--yamaha-cyan);
-      box-shadow: 0 0 12px rgba(0,240,255,0.5);
-    }
-
-    /* Variant Selector */
-    .variant-btn-group .btn-outline-cyan {
-      border-color: var(--yamaha-cyan);
-      color: var(--yamaha-cyan);
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .variant-btn-group .btn-outline-cyan.active,
-    .variant-btn-group .btn-outline-cyan:hover {
-      background-color: var(--yamaha-blue);
-      border-color: var(--yamaha-cyan);
-      color: #fff;
-      box-shadow: 0 0 14px rgba(0,240,255,0.3);
-    }
-
-    /* Specs Grid Items */
-    .spec-item-box {
-      background: var(--yamaha-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 12px 14px;
-      height: 100%;
-      transition: all 0.25s var(--ease);
-    }
-    .spec-item-box:hover {
-      border-color: var(--yamaha-cyan);
-      background: var(--yamaha-card-hover);
-      transform: translateY(-2px);
-    }
-    .spec-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: var(--text-muted);
-      margin-bottom: 2px;
-    }
-    .spec-value {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    /* Addons & Insurance */
-    .accessory-item-card, .insurance-option-card {
-      background: var(--yamaha-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 14px;
-      cursor: pointer;
-      transition: all 0.25s var(--ease);
-      user-select: none;
-    }
-    .accessory-item-card:hover, .insurance-option-card:hover {
-      border-color: rgba(0, 240, 255, 0.4);
-      background: var(--yamaha-card-hover);
-      transform: translateY(-2px);
-    }
-    .accessory-item-card.selected, .insurance-option-card.selected {
-      border-color: var(--yamaha-cyan);
-      background: rgba(0, 68, 238, 0.22);
-      box-shadow: 0 0 14px rgba(0, 240, 255, 0.25);
-    }
-
-    /* Permanent Mobile Bottom Glass Bar */
-    .mobile-bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 64px;
-      background: rgba(7, 11, 20, 0.92);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-top: 1px solid var(--border-glow);
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 0 8px;
-      z-index: 1040;
-    }
-    .mobile-bar-btn {
-      background: transparent;
+    .dot-btn {
+      width: 24px;
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.3);
       border: none;
-      color: #8E9DB5;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+    .dot-btn.active {
+      width: 44px;
+      background: var(--yamaha-cyan);
+      box-shadow: 0 0 12px var(--yamaha-cyan);
+    }
+
+    /* Horizontal Scroll Showcase (One by One) */
+    .scroll-showcase-wrapper {
+      position: relative;
+    }
+    .scroll-container {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem 0.25rem 1.5rem 0.25rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--yamaha-cyan) rgba(14, 22, 38, 0.5);
+    }
+    .scroll-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .scroll-container::-webkit-scrollbar-track {
+      background: rgba(14, 22, 38, 0.5);
+      border-radius: 3px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: var(--yamaha-cyan);
+      border-radius: 3px;
+    }
+
+    /* Bike Card */
+    .bike-card {
+      flex: 0 0 320px;
+      scroll-snap-align: center;
+      background: var(--yamaha-card);
+      backdrop-filter: var(--blur-strength);
+      -webkit-backdrop-filter: var(--blur-strength);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
       display: flex;
       flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    @media (max-width: 576px) {
+      .bike-card { flex: 0 0 82vw; min-width: 275px; max-width: 330px; }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .bike-card { flex: 0 0 340px; }
+    }
+    .bike-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--yamaha-cyan);
+      box-shadow: 0 16px 36px rgba(0, 240, 255, 0.22);
+    }
+    .bike-card-img-wrap {
+      height: 200px;
+      background: radial-gradient(circle at 50% 60%, #16243E 0%, #080D18 85%);
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      text-decoration: none;
+      padding: 1rem;
+      position: relative;
     }
-    .mobile-bar-btn:active, .mobile-bar-btn.active {
+    .bike-card-img {
+      max-width: 92%;
+      max-height: 88%;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 16px rgba(0,0,0,0.85));
+      transition: transform 0.35s ease;
+    }
+    .bike-card:hover .bike-card-img {
+      transform: scale(1.06);
+    }
+
+    /* Video Player Section */
+    .video-section {
+      background: var(--yamaha-surface);
+      border-top: 1px solid var(--border-glow);
+      border-bottom: 1px solid var(--border-glow);
+      position: relative;
+    }
+    .video-responsive-box {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 12px 45px rgba(0, 68, 238, 0.45);
+      background: #000;
+    }
+    .video-responsive-box iframe,
+    .video-responsive-box video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      object-fit: cover;
+    }
+    .video-audio-badge {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      z-index: 10;
+      background: rgba(5, 8, 15, 0.85);
+      border: 1px solid var(--border-glow);
       color: var(--yamaha-cyan);
-      background: rgba(0, 240, 255, 0.15);
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.35);
+      font-size: 0.8rem;
+      border-radius: 20px;
+      padding: 4px 12px;
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
+    /* Technology Feature Pillars */
+    .shape-polygon-card {
+      position: relative;
+      background: var(--yamaha-card);
+      backdrop-filter: var(--blur-strength);
+      -webkit-backdrop-filter: var(--blur-strength);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.6rem;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .shape-polygon-card::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      right: -25px;
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, var(--yamaha-blue), var(--yamaha-cyan));
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+      opacity: 0.7;
+    }
+    .shape-polygon-card:hover {
+      border-color: var(--yamaha-cyan);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.18);
+    }
+
+    /* Floating Action Buttons (FAB) */
+    .fab-container {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .fab-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(15px);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .fab-container.active .fab-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .fab-btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      white-space: nowrap;
+    }
+    .fab-btn-action.whatsapp { background: #25D366; }
+    .fab-btn-action.call { background: var(--yamaha-blue); }
+    .fab-main-trigger {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--yamaha-blue), var(--yamaha-cyan));
+      border: none;
+      color: #070B14;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 25px rgba(0, 240, 255, 0.55);
+      transition: var(--transition-smooth);
+    }
+    .fab-container.active .fab-main-trigger {
+      transform: rotate(45deg);
+      background: var(--yamaha-red);
+      color: #fff;
+    }
+
+    /* Button Styling */
+    .btn-racing-primary {
+      background: linear-gradient(90deg, var(--yamaha-blue), #0022AA);
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      border: 1px solid var(--yamaha-cyan);
+      box-shadow: 0 4px 18px rgba(0, 68, 238, 0.4);
+      transition: var(--transition-smooth);
+    }
+    .btn-racing-primary:hover {
+      background: linear-gradient(90deg, #0022AA, var(--yamaha-blue));
+      color: var(--yamaha-cyan);
+      box-shadow: 0 6px 24px rgba(0, 240, 255, 0.4);
       transform: translateY(-2px);
     }
-    .mobile-bar-btn.cta-btn {
-      background: linear-gradient(135deg, var(--yamaha-blue), var(--yamaha-cyan));
-      color: #070B14;
-      font-size: 1.35rem;
-      box-shadow: 0 4px 14px rgba(0, 240, 255, 0.4);
-    }
 
-    /* Offcanvas Bottom Drawer */
-    .offcanvas-bottom {
-      background-color: #0B1220 !important;
-      color: #fff;
-      border-top: 1px solid var(--border-glow);
+    .btn-racing-outline {
+      border: 1px solid var(--yamaha-cyan);
+      color: var(--yamaha-cyan);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      background: rgba(0, 240, 255, 0.05);
+      transition: var(--transition-smooth);
     }
-
-    /* Responsive Breakpoints */
-    @media (max-width: 991px) {
-      .showroom-grid { display: block; }
-      .desktop-sidebar { display: none !important; }
-      .media-viewport { max-height: 380px; }
-      body { padding-bottom: 74px; }
-    }
-    @media (min-width: 992px) {
-      .mobile-bottom-bar { display: none; }
-      body { padding-bottom: 0; }
+    .btn-racing-outline:hover {
+      background: var(--yamaha-cyan);
+      color: #05080F;
+      box-shadow: 0 0 15px var(--yamaha-cyan);
     }
   </style>
 </head>
 <body>
 
   <!-- =========================================================================
-       1. HEADER (LOGO SYMBOL & NAME ONLY)
+       1. RESPONSIVE HEADER & DRAWER (MOBILE, TAB & DESKTOP)
        ========================================================================= -->
-  <header class="clean-header px-3 px-lg-4">
+  <header class="glass-header py-2 px-3 px-lg-4">
     <div class="container-fluid d-flex justify-content-between align-items-center">
-      <a href="home.html" class="text-decoration-none d-flex align-items-center gap-2 gap-md-3">
+      <!-- Dealership Brand -->
+      <a href="home.html" class="text-decoration-none d-flex align-items-center gap-2 gap-sm-3">
         <img src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png" 
-             alt="Yamaha" class="brand-logo-symbol"
+             alt="Yamaha Sai Motors" class="brand-logo"
              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_Motor_logo.svg'">
         <div>
-          <h1 class="h5 mb-0 font-racing text-white fw-bold">YAMAHA <span style="color:var(--yamaha-cyan);">SAI MOTORS</span></h1>
-          <span class="small text-secondary font-racing d-none d-sm-inline" style="letter-spacing:1px;">OFFICIAL SHOWROOM PORTAL</span>
+          <h1 class="h5 h4-sm mb-0 font-racing text-white fw-bold">Yamaha <span style="color:var(--yamaha-cyan);">Sai Motors</span></h1>
+          <span class="small text-secondary font-racing d-none d-sm-inline" style="letter-spacing:1px;">Flagship Dealership & Studio</span>
         </div>
       </a>
 
-      <!-- Desktop-Only Nav Items -->
+      <!-- Desktop Nav Actions -->
       <div class="d-none d-lg-flex gap-2 align-items-center">
-        <a href="home.html" class="btn btn-outline-light btn-sm font-racing px-3">Home</a>
-        <button class="btn btn-primary btn-sm font-racing px-3" onclick="openContactModal()">Contact AS</button>
+        <a href="#models-scroll-section" class="btn btn-outline-light btn-sm font-racing px-3">Fleet</a>
+        <a href="#video-section" class="btn btn-outline-light btn-sm font-racing px-3">Walkaround</a>
+        <a href="#tech-pillars" class="btn btn-outline-light btn-sm font-racing px-3">Tech Pillars</a>
+        <a href="user.html" class="btn btn-racing-primary btn-sm font-racing px-3 py-2">
+          <i class="bi bi-box-arrow-up-right me-1"></i> Open Showroom
+        </a>
+      </div>
+
+      <!-- Mobile / Tablet Hamburger Toggle -->
+      <div class="d-flex d-lg-none gap-2 align-items-center">
+        <a href="user.html" class="btn btn-racing-primary btn-sm font-racing px-2 py-1 fs-6">
+          <i class="bi bi-box-arrow-up-right me-1"></i> Showroom
+        </a>
+        <button class="btn btn-outline-light btn-sm p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuDrawer" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-4"></i>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="mobileMenuDrawer" aria-labelledby="mobileDrawerLabel">
+    <div class="offcanvas-header border-bottom border-secondary">
+      <div class="d-flex align-items-center gap-2">
+        <img src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png" 
+             alt="Yamaha" style="height:28px;"
+             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_Motor_logo.svg'">
+        <h5 class="offcanvas-title font-racing fw-bold" id="mobileDrawerLabel">Sai Motors</h5>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between p-4">
+      <div class="d-flex flex-column gap-2">
+        <a href="#models-scroll-section" class="mobile-nav-link" data-bs-dismiss="offcanvas">
+          <i class="bi bi-speedometer2 text-info"></i> Showroom Fleet
+        </a>
+        <a href="#video-section" class="mobile-nav-link" data-bs-dismiss="offcanvas">
+          <i class="bi bi-play-circle text-danger"></i> Walkaround Video
+        </a>
+        <a href="#tech-pillars" class="mobile-nav-link" data-bs-dismiss="offcanvas">
+          <i class="bi bi-cpu text-info"></i> Tech Signatures
+        </a>
+        <a href="user.html" class="mobile-nav-link" style="border-color:var(--yamaha-cyan); color:var(--yamaha-cyan);">
+          <i class="bi bi-compass"></i> Bike Explorer & Quote
+        </a>
+        <a href="admin.html" class="mobile-nav-link text-secondary">
+          <i class="bi bi-shield-lock"></i> Admin Portal
+        </a>
+      </div>
+
+      <!-- Quick Contact in Drawer -->
+      <div class="pt-4 border-top border-secondary">
+        <div class="small text-secondary font-racing mb-2">Dealership Hotline:</div>
+        <a href="tel:+919876543210" class="btn btn-outline-light w-100 font-racing mb-2 py-2">
+          <i class="bi bi-telephone-fill me-2 text-info"></i> Call Showroom
+        </a>
+        <a href="https://wa.me/919876543210?text=Hello%20Yamaha%20Sai%20Motors,%20I%20am%20inquiring%20from%20your%20website." target="_blank" class="btn btn-success w-100 font-racing py-2">
+          <i class="bi bi-whatsapp me-2"></i> WhatsApp Inquiry
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- =========================================================================
-       2. SHOWROOM GRID (DESKTOP SIDEBAR + DYNAMIC STAGE)
+       2. HERO SLIDESHOW SECTION (TOUCH & MOBILE OPTIMIZED)
        ========================================================================= -->
-  <div class="showroom-grid">
-    <!-- Desktop-Only Sidebar (320px) -->
-    <aside class="models-list-group p-3 desktop-sidebar">
-      <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom border-secondary">
-        <span class="font-racing text-cyan fw-bold" style="color:var(--yamaha-cyan); font-size:0.95rem;">Select Model</span>
-        <span class="badge bg-secondary" id="models-total-badge">11 Models</span>
-      </div>
-
-      <!-- Live Search -->
-      <div class="search-box-wrapper mb-3">
-        <i class="bi bi-search search-icon-left"></i>
-        <input type="text" class="form-control search-input-field" id="model-search-input" placeholder="Search model (e.g. R15, MT)..." oninput="handleModelSearch(this.value)">
-        <button type="button" class="clear-search-btn" id="clear-search-btn" onclick="clearSearch()"><i class="bi bi-x-circle-fill"></i></button>
-      </div>
-
-      <div id="models-sidebar-items"></div>
-    </aside>
-
-    <!-- Main Dynamic Showcase Stage -->
-    <main class="p-3 p-lg-4 d-flex flex-column gap-3 gap-lg-4 overflow-y-auto">
-      
-      <!-- Stage 1: Title, Trims & Price -->
-      <div class="stage-card p-3 p-lg-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-          <div>
-            <div class="d-flex align-items-center gap-2 mb-1">
-              <span class="badge bg-danger font-racing" id="stage-offer-badge">Festival Offer</span>
-              <span class="text-secondary small font-racing" id="stage-variant-indicator">TRIM: TOP</span>
-            </div>
-            <h2 class="display-6 fw-bold font-racing mb-0 text-white" id="stage-bike-title">R15 V4</h2>
-            <div class="d-flex align-items-baseline gap-2 mt-1">
-              <span class="h3 font-racing fw-bold" style="color:var(--yamaha-cyan);" id="stage-bike-price">₹ 1,82,500</span>
-              <span class="text-secondary small">(Ex-Showroom)</span>
-            </div>
-          </div>
-          <!-- Basic / Middle / Top Trims[cite: 1] -->
-          <div class="btn-group variant-btn-group" role="group">
-            <button type="button" class="btn btn-outline-cyan px-3 py-2" onclick="switchVariant('basic', this)">Basic</button>
-            <button type="button" class="btn btn-outline-cyan px-3 py-2" onclick="switchVariant('middle', this)">Middle</button>
-            <button type="button" class="btn btn-outline-cyan px-3 py-2 active" onclick="switchVariant('top', this)">Top</button>
+  <section class="hero-carousel-section">
+    <!-- Slide 1: R15 V4 -->
+    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80');">
+      <div class="hero-overlay"></div>
+      <div class="container px-3 px-sm-4 px-lg-5">
+        <div class="hero-content">
+          <span class="badge bg-danger font-racing mb-2 px-3 py-1 fs-6">MotoGP DNA Unleashed</span>
+          <h2 class="display-5 display-md-4 fw-bold font-racing text-white mb-2">Yamaha R15 V4</h2>
+          <p class="text-light mb-4 fs-6 fs-md-5">Track-bred aerodynamics, Variable Valve Actuation (VVA), Traction Control System, and Assist & Slipper Clutch.</p>
+          <div class="d-flex gap-2 gap-sm-3 flex-wrap">
+            <a href="user.html?model=r15-v4" class="btn btn-racing-primary font-racing px-3 px-sm-4 py-2 fs-6 fs-sm-5">
+              <i class="bi bi-compass me-1"></i> Explode Model
+            </a>
+            <a href="#models-scroll-section" class="btn btn-racing-outline font-racing px-3 px-sm-4 py-2 fs-6 fs-sm-5">
+              Explore Fleet
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Stage 2: Photos & Universal Video Studio[cite: 1] -->
-      <div class="stage-card overflow-hidden">
-        <div class="media-viewport">
-          <!-- Photo Viewport -->
-          <div id="photo-display-container" class="w-100 h-100 d-flex align-items-center justify-content-center">
-            <button class="slide-nav-btn" style="left:15px;" onclick="prevSlide()">&#10094;</button>
-            <img src="" alt="Yamaha Bike" class="main-bike-img" id="stage-main-image">
-            <button class="slide-nav-btn" style="right:15px;" onclick="nextSlide()">&#10095;</button>
+    <!-- Slide 2: XSR 155 -->
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80');">
+      <div class="hero-overlay"></div>
+      <div class="container px-3 px-sm-4 px-lg-5">
+        <div class="hero-content">
+          <span class="badge bg-info font-racing text-dark mb-2 px-3 py-1 fs-6">Born to be Legend</span>
+          <h2 class="display-5 display-md-4 fw-bold font-racing text-white mb-2">Yamaha XSR 155</h2>
+          <p class="text-light mb-4 fs-6 fs-md-5">Timeless neo-retro craftsmanship paired with high-revving 155cc liquid-cooled power and sculpted teardrop fuel tank.</p>
+          <div class="d-flex gap-2 gap-sm-3 flex-wrap">
+            <a href="user.html?model=xsr-155" class="btn btn-racing-primary font-racing px-3 px-sm-4 py-2 fs-6 fs-sm-5">
+              <i class="bi bi-compass me-1"></i> Explode Model
+            </a>
+            <a href="#video-section" class="btn btn-racing-outline font-racing px-3 px-sm-4 py-2 fs-6 fs-sm-5">
+              Watch Video
+            </a>
           </div>
-
-          <!-- Video Viewport -->
-          <div id="video-display-container" class="video-frame-container d-none"></div>
-        </div>
-
-        <!-- Controls: Color Swatches & Thumbnails Filmstrip -->
-        <div class="p-3 bg-dark border-top border-secondary d-flex flex-wrap justify-content-between align-items-center gap-3">
-          <div class="d-flex align-items-center gap-3">
-            <span class="font-racing fw-bold small" style="color:var(--yamaha-cyan);">Colors:</span>
-            <div class="d-flex gap-2" id="color-swatches-container"></div>
-          </div>
-          <div class="d-flex gap-2 overflow-x-auto align-items-center" id="thumbnails-container"></div>
         </div>
       </div>
+    </div>
 
-      <!-- Stage 3: Complete 18 Technical Specifications -->
-      <div class="stage-card p-3 p-lg-4" id="specs-section">
-        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-secondary">
-          <div>
-            <h3 class="h4 font-racing text-white mb-0" style="color:var(--yamaha-cyan);">
-              <i class="bi bi-speedometer2 me-2"></i>Full Technical Specifications
-            </h3>
-            <span class="small text-secondary">Complete 18 Parameters</span>
+    <!-- Slide 3: MT-15 Version 2.0 -->
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1920&q=80');">
+      <div class="hero-overlay"></div>
+      <div class="container px-3 px-sm-4 px-lg-5">
+        <div class="hero-content">
+          <span class="badge bg-warning font-racing text-dark mb-2 px-3 py-1 fs-6">The Dark Side of Japan</span>
+          <h2 class="display-5 display-md-4 fw-bold font-racing text-white mb-2">MT-15 Version 2.0</h2>
+          <p class="text-light mb-4 fs-6 fs-md-5">Torquey hyper-naked agility featuring gold inverted USD front forks, twin-eye LED headlights, and lightweight Deltabox agility.</p>
+          <div class="d-flex gap-2 gap-sm-3 flex-wrap">
+            <a href="user.html?model=mt-15-v2" class="btn btn-racing-primary font-racing px-3 px-sm-4 py-2 fs-6 fs-sm-5">
+              <i class="bi bi-compass me-1"></i> Explode Model
+            </a>
+            <a href="#models-scroll-section" class="btn btn-racing-outline font-racing px-3 px-sm-4 py-2 fs-6 fs-sm-5">
+              View Lineup
+            </a>
           </div>
-          <span class="badge bg-primary font-racing px-3 py-2" id="spec-engine-badge">BS6 Phase 2B Compliant</span>
         </div>
-        <div class="row g-2 g-md-3" id="specs-container-grid"></div>
       </div>
+    </div>
 
-      <!-- Stage 4: Extrafiting / Accessories[cite: 1] -->
-      <div class="stage-card p-3 p-lg-4" id="extrafitting-section">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h3 class="h4 font-racing text-white mb-0" style="color:var(--yamaha-cyan);">
-            <i class="bi bi-gear-wide-connected me-2"></i>Model Extrafiting & Accessories
-          </h3>
-          <span class="small text-secondary">Individual model fitting pricing</span>
+    <!-- Carousel Dots -->
+    <div class="hero-nav-dots" id="hero-dots-container">
+      <button class="dot-btn active" onclick="setHeroSlide(0)" aria-label="Slide 1"></button>
+      <button class="dot-btn" onclick="setHeroSlide(1)" aria-label="Slide 2"></button>
+      <button class="dot-btn" onclick="setHeroSlide(2)" aria-label="Slide 3"></button>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. FLEET HORIZONTAL SCROLL (ONE-BY-ONE CAROUSEL SYNCED WITH USER PAGE)
+       ========================================================================= -->
+  <section class="py-4 py-md-5 px-3 px-lg-5" id="models-scroll-section">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-end mb-3 mb-md-4">
+        <div>
+          <span class="badge bg-primary font-racing px-3 py-1 mb-2">Live Showroom Catalog</span>
+          <h2 class="h3 h2-md font-racing fw-bold text-white mb-0">Yamaha Fleet Lineup</h2>
+          <p class="text-secondary small mb-0 d-none d-sm-block">Swipe horizontally or use arrows to review ex-showroom prices and click Explode to configure.</p>
         </div>
-        <div class="row g-2 g-md-3" id="accessories-grid"></div>
-      </div>
-
-      <!-- Stage 5: Bike Insurance -->
-      <div class="stage-card p-3 p-lg-4" id="insurance-section">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h3 class="h4 font-racing text-white mb-0" style="color:var(--yamaha-cyan);">
-            <i class="bi bi-shield-check me-2"></i>Yamaha Shield Insurance
-          </h3>
-          <span class="small text-secondary">Protection Packages</span>
-        </div>
-        <div class="row g-2 g-md-3" id="insurance-grid"></div>
-      </div>
-
-      <!-- Stage 6: Grand Total -->
-      <div class="stage-card p-3 p-lg-4 border border-info" style="background:rgba(0,68,238,0.18);">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-          <div>
-            <div class="text-secondary small font-racing">Estimated On-Road Total (Bike + Fitting + Insurance):</div>
-            <div class="display-6 font-racing fw-bold" style="color:var(--yamaha-cyan);" id="grand-total-display">₹ 0</div>
-          </div>
-          <button class="btn btn-primary font-racing px-4 px-md-5 py-3 fs-5" onclick="openContactModal()">
-            Proceed To Book / Contact AS
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-light btn-sm rounded-circle px-3 py-2" onclick="scrollBikes(-1)" aria-label="Scroll left">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="btn btn-outline-light btn-sm rounded-circle px-3 py-2" onclick="scrollBikes(1)" aria-label="Scroll right">
+            <i class="bi bi-chevron-right"></i>
           </button>
         </div>
       </div>
-    </main>
-  </div>
 
-  <!-- =========================================================================
-       3. PERMANENT MOBILE / TABLET GLASS BOTTOM APP BAR
-       ========================================================================= -->
-  <nav class="mobile-bottom-bar" aria-label="Mobile Bottom App Bar">
-    <button class="mobile-bar-btn" data-bs-toggle="offcanvas" data-bs-target="#mobileModelsDrawer" title="Select Model">
-      <i class="bi bi-grid-fill"></i>
-    </button>
-    <button class="mobile-bar-btn active" id="btn-mobile-photo" onclick="setMediaMode('photo')" title="Photos">
-      <i class="bi bi-image"></i>
-    </button>
-    <button class="mobile-bar-btn" id="btn-mobile-video" onclick="setMediaMode('video')" title="Walkaround Video">
-      <i class="bi bi-play-circle"></i>
-    </button>
-    <a href="#specs-section" class="mobile-bar-btn" title="Specifications">
-      <i class="bi bi-speedometer2"></i>
-    </a>
-    <a href="#extrafitting-section" class="mobile-bar-btn" title="Accessories">
-      <i class="bi bi-gear-wide"></i>
-    </a>
-    <button class="mobile-bar-btn cta-btn" onclick="openContactModal()" title="Book / Contact">
-      <i class="bi bi-chat-dots-fill"></i>
-    </button>
-  </nav>
-
-  <!-- =========================================================================
-       4. MOBILE MODELS DRAWER (OFFCANVAS)
-       ========================================================================= -->
-  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="mobileModelsDrawer" style="height:70vh; border-radius:24px 24px 0 0;">
-    <div class="offcanvas-header border-bottom border-secondary py-3">
-      <h5 class="offcanvas-title font-racing text-info fw-bold mb-0">Select Yamaha Model</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body p-3">
-      <div class="search-box-wrapper mb-3">
-        <i class="bi bi-search search-icon-left"></i>
-        <input type="text" class="form-control search-input-field" placeholder="Search model..." oninput="handleModelSearch(this.value)">
-      </div>
-      <div id="mobile-models-drawer-items"></div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       5. CONTACT MODAL (Name, Phone, Optional Email, Message & Submit)[cite: 1]
-       ========================================================================= -->
-  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content" style="background:#0B1220; border:1px solid var(--border-glow); color:#fff; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.8);">
-        <div class="modal-header border-secondary">
-          <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-envelope-paper-fill fs-4" style="color:var(--yamaha-cyan);"></i>
-            <h5 class="modal-title font-racing fw-bold mb-0">Book Test Ride / Contact AS</h5>
-          </div>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      <!-- Horizontal Scrollable Container -->
+      <div class="scroll-showcase-wrapper">
+        <div class="scroll-container" id="bikes-horizontal-scroll">
+          <!-- Dynamically populated from database or cache -->
         </div>
-        
-        <form class="modal-body p-4" id="contact-inquiry-form" onsubmit="submitCustomerInquiry(event)">
-          <div class="row g-3">
-            <div class="col-12 col-md-6">
-              <label class="form-label small text-secondary fw-semibold">Full Name <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" id="cust-name" required placeholder="Enter full name">
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="form-label small text-secondary fw-semibold">Mobile Number <span class="text-danger">*</span></label>
-              <input type="tel" class="form-control" id="cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="form-label small text-secondary fw-semibold">Email Address <span class="text-secondary">(Optional)</span></label>
-              <input type="email" class="form-control" id="cust-email" placeholder="name@example.com">
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="form-label small text-secondary fw-semibold">Preferred Date <span class="text-danger">*</span></label>
-              <input type="date" class="form-control" id="cust-date" required>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="form-label small text-secondary fw-semibold">Selected Bike & Trim</label>
-              <input type="text" class="form-control bg-dark text-info fw-bold" id="cust-config" readonly>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="form-label small text-secondary fw-semibold">Inquiry Purpose</label>
-              <select class="form-select" id="cust-type">
-                <option value="Schedule Free Test Ride">Schedule Free Test Ride</option>
-                <option value="Loan EMI Quotation">Loan EMI & Quotation</option>
-                <option value="Direct Purchase Booking">Direct Purchase Booking</option>
-                <option value="Exchange Inquiry">Used Bike Exchange</option>
-              </select>
-            </div>
-
-            <div class="col-12">
-              <label class="form-label small text-secondary fw-semibold">Message / Notes <span class="text-secondary">(Optional)</span></label>
-              <textarea class="form-control" id="cust-message" rows="3" placeholder="Write any questions or visit details here..."></textarea>
-            </div>
-
-            <div class="col-12 mt-4">
-              <button type="submit" class="btn btn-primary font-racing w-100 py-3 fs-5" id="btn-submit-inquiry">
-                <i class="bi bi-send-check me-2"></i> Submit Inquiry To Yamaha Sai Motors
-              </button>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
+  </section>
+
+  <!-- =========================================================================
+       4. RELIABLE VIDEO PLAYER (AUTOPLAY + WORKING FALLBACK)
+       ========================================================================= -->
+  <section class="video-section py-4 py-md-5 px-3 px-lg-5" id="video-section">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5 order-2 order-lg-1">
+          <span class="badge bg-danger font-racing px-3 py-1 mb-2">Featured Walkaround</span>
+          <h2 class="display-6 font-racing fw-bold text-white mb-2" id="showcase-video-title">Official Walkaround & Review</h2>
+          <p class="text-secondary mb-3 small" id="showcase-video-desc">
+            Explore aerodynamic contours, exhaust note, cockpit ergonomics, switchgear finishes, and metallic paint finishes in rich detail.
+          </p>
+          <div class="glass-card p-3 mb-3">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-play-circle-fill text-danger fs-2"></i>
+              <div>
+                <div class="fw-bold text-white fs-6">Continuous Playback Ready</div>
+                <div class="small text-secondary">Preloaded walkaround video. Tap controls on video to enable high-fidelity engine audio!</div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="user.html" class="btn btn-racing-primary font-racing px-4 py-2 fs-6">
+              <i class="bi bi-calendar-check me-2"></i>Schedule Test Ride
+            </a>
+            <a href="admin.html" class="btn btn-outline-secondary font-racing px-3 py-2 fs-6">
+              <i class="bi bi-gear me-1"></i> Admin Video
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-7 order-1 order-lg-2">
+          <!-- Universal Video Player Frame with Automatic Safe Fallback -->
+          <div class="video-responsive-box" id="universal-video-container">
+            <!-- Mounted dynamically by JS (YouTube + HTML5 Fallback) -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. MODERN STYLE SHAPES & TECH PILLARS
+       ========================================================================= -->
+  <section class="py-5 px-3 px-lg-5" id="tech-pillars">
+    <div class="container">
+      <div class="text-center mb-4 mb-md-5">
+        <span class="badge bg-info text-dark font-racing px-3 py-1 mb-2">Engineering Signatures</span>
+        <h2 class="display-6 font-racing fw-bold text-white mb-2">Modern Technology Pillars</h2>
+        <p class="text-secondary small">Precision mechanical architecture crafted for cornering stability, acceleration curve, and high fuel economy.</p>
+      </div>
+
+      <div class="row g-3 g-md-4">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="shape-polygon-card h-100">
+            <div class="h2 font-racing text-info mb-2">01</div>
+            <h4 class="font-racing text-white fw-bold fs-5">Variable Valve Actuation</h4>
+            <p class="text-secondary small mb-0">Dual intake valve cams optimize low-end tractability below 7,400 RPM and trigger high-cam power above 10,000 RPM.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="shape-polygon-card h-100">
+            <div class="h2 font-racing text-info mb-2">02</div>
+            <h4 class="font-racing text-white fw-bold fs-5">Deltabox Chassis</h4>
+            <p class="text-secondary small mb-0">Rigid perimeter chassis directly derived from Yamaha MotoGP machines, maximizing cornering grip and track stability.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="shape-polygon-card h-100">
+            <div class="h2 font-racing text-info mb-2">03</div>
+            <h4 class="font-racing text-white fw-bold fs-5">TCS & Dual ABS</h4>
+            <p class="text-secondary small mb-0">Microsecond ignition retarding prevents rear wheel slippage during rapid launch across wet asphalt and slippery terrain.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="shape-polygon-card h-100">
+            <div class="h2 font-racing text-info mb-2">04</div>
+            <h4 class="font-racing text-white fw-bold fs-5">Y-Connect Telemetry</h4>
+            <p class="text-secondary small mb-0">Bluetooth smartphone telemetry syncing real-time tachometer revs, fuel economy logs, last parked location, and service alerts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. FOOTER
+       ========================================================================= -->
+  <footer class="py-4 px-3 px-lg-5 border-top border-secondary" style="background:var(--yamaha-surface);">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center gap-2">
+        <img src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png" 
+             alt="Yamaha" style="height:30px;"
+             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_Motor_logo.svg'">
+        <span class="font-racing fw-bold text-white">Yamaha Sai Motors</span>
+        <span class="text-secondary small">© 2026 Authorized Dealership.</span>
+      </div>
+      <div class="d-flex gap-3">
+        <a href="user.html" class="text-info text-decoration-none font-racing">Showroom Portal</a>
+        <a href="admin.html" class="text-secondary text-decoration-none font-racing">Admin Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       7. FLOATING ACTION BUTTON (FAB)
+       ========================================================================= -->
+  <div class="fab-container" id="fab-container">
+    <div class="fab-menu">
+      <a href="https://wa.me/919876543210?text=Hello%20Yamaha%20Sai%20Motors,%20I%20am%20inquiring%20from%20your%20website." 
+         target="_blank" class="fab-btn-action whatsapp">
+        <i class="bi bi-whatsapp"></i> WhatsApp Us
+      </a>
+      <a href="tel:+919876543210" class="fab-btn-action call">
+        <i class="bi bi-telephone-fill"></i> Call Showroom
+      </a>
+    </div>
+    <button class="fab-main-trigger" onclick="toggleFab()" aria-label="Quick Actions">+</button>
   </div>
 
-  <!-- Bootstrap 5 Bundle JS -->
+  <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxyiusay2BIsDcoxTBHI6nRmYPK6j7Cofh_sm0yWqYZYinqhJiGRNpX_4Xtky07hZ-f/exec";
+    // -------------------------------------------------------------------------
+    // 1. CONFIG & MASTER SHOWROOM CATALOG
+    // -------------------------------------------------------------------------
+    const APPS_SCRIPT_URL = localStorage.getItem("yamaha_apps_script_url") || "";
 
-    // Showroom Catalog Database with Full 18 Technical Specs[cite: 1]
-    let database = [
+    // Default Fallback Fleet (11 Models)
+    let showroomDatabase = [
       {
         id: "r15-v4",
-        name: "R15 V4",
+        name: "Yamaha R15 V4",
         offer: "₹5,000 Exchange Bonus",
-        videoUrl: "https://youtu.be/og860ziXQOQ?si=JKVfn675q_1Smi0H",
         prices: { basic: 182500, middle: 187500, top: 197500 },
-        specs: {
-          displacement: "155 cc", maxPower: "18.1 bhp @ 10000 rpm", maxTorque: "14.2 Nm @ 7500 rpm",
-          topSpeed: "125 kmph", mileage: "46 kmpl", transmission: "6 Speed Manual",
-          transmissionType: "Chain Drive", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper",
-          ridingRange: "460 km", ridingModes: "Track & Street", engineType: "1 Cylinder LC4V VVA",
-          boreStroke: "58 mm x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1 Per Cyl",
-          battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol"
-        },
-        colors: [
-          { name: "Racing Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] },
-          { name: "Dark Knight", hex: "#1C1F26", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80"] }
-        ],
-        accessories: [
-          { id: "acc-guard", name: "Engine Crash Guard", price: 2450, icon: "bi-shield" },
-          { id: "acc-seat", name: "Comfort Tourer Seat", price: 1650, icon: "bi-layers" }
-        ],
-        insurance: [
-          { id: "ins-1yr", name: "1 Year Comprehensive + 4 Years 3rd Party", price: 8200 },
-          { id: "ins-zero-dep", name: "Zero Depreciation Comprehensive Pack", price: 11400 }
-        ]
+        specs: { displacement: "155 cc", maxPower: "18.1 bhp @ 10000 rpm", mileage: "46 kmpl", engineType: "Liquid Cooled 4V VVA" },
+        colors: [{ name: "Racing Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80"] }]
       },
       {
         id: "mt-15-v2",
         name: "MT 15 Version 2.0",
-        offer: "Free Certified Riding Helmet",
-        videoUrl: "https://youtu.be/og860ziXQOQ",
+        offer: "Free Riding Helmet",
         prices: { basic: 168000, middle: 173000, top: 179000 },
-        specs: {
-          displacement: "155 cc", maxPower: "18.1 bhp", maxTorque: "14.1 Nm",
-          topSpeed: "122 kmph", mileage: "48 kmpl", transmission: "6 Speed",
-          transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper",
-          ridingRange: "480 km", ridingModes: "No", engineType: "Liquid Cooled SOHC",
-          boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1",
-          battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol"
-        },
-        colors: [
-          { name: "Cyan Storm", hex: "#00F0FF", images: ["https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1000&q=80"] }
-        ],
-        accessories: [{ id: "acc-tank", name: "MT Tank Pad", price: 650, icon: "bi-slash-circle" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7800 }]
+        specs: { displacement: "155 cc", maxPower: "18.1 bhp @ 10000 rpm", mileage: "48 kmpl", engineType: "Liquid Cooled SOHC" },
+        colors: [{ name: "Cyan Storm", hex: "#00F0FF", images: ["https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=600&q=80"] }]
       },
-      { id: "xsr-155", name: "XSR 155", offer: "Zero Down Payment", videoUrl: "https://youtu.be/og860ziXQOQ", prices: { basic: 159000, middle: 164000, top: 169000 }, specs: { displacement: "155 cc", maxPower: "19.0 bhp", maxTorque: "14.7 Nm", topSpeed: "120 kmph", mileage: "48 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "480 km", ridingModes: "No", engineType: "Liquid Cooled VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, colors: [{ name: "Heritage Silver", hex: "#A8A9AD", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80"] }], accessories: [{ id: "acc-visor", name: "Retro Visor", price: 1400, icon: "bi-wind" }], insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7400 }] },
-      { id: "aerox-155", name: "Aerox 155", offer: "Complimentary Riding Jacket", videoUrl: "https://youtu.be/og860ziXQOQ", prices: { basic: 147000, middle: 151000, top: 153000 }, specs: { displacement: "155 cc", maxPower: "14.8 bhp", maxTorque: "13.9 Nm", topSpeed: "120 kmph", mileage: "44 kmpl", transmission: "Automatic", transmissionType: "Belt", gearShiftPattern: "Auto", clutch: "Centrifugal", ridingRange: "240 km", ridingModes: "No", engineType: "Liquid Cooled 4V", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 6.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, colors: [{ name: "Racing Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] }], accessories: [{ id: "acc-knuckle", name: "Knuckle Guards", price: 1850, icon: "bi-hand-index-thumb" }], insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6900 }] },
-      { id: "fzs-fiv4", name: "FZS-Fi V4", offer: "Free Bluetooth Connect Kit", videoUrl: "https://youtu.be/og860ziXQOQ", prices: { basic: 129000, middle: 132000, top: 135000 }, specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, colors: [{ name: "Racing Red", hex: "#E60012", images: ["https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80"] }], accessories: [{ id: "acc-tank-3d", name: "3D Tank Emblem", price: 850, icon: "bi-star" }], insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6200 }] },
-      { id: "ray-zr-125", name: "Ray ZR 125 Fi Hybrid", offer: "₹3,000 Cash Discount", videoUrl: "https://youtu.be/og860ziXQOQ", prices: { basic: 85000, middle: 91000, top: 96000 }, specs: { displacement: "125 cc", maxPower: "8.2 bhp", maxTorque: "10.3 Nm", topSpeed: "90 kmph", mileage: "62 kmpl", transmission: "CVT", transmissionType: "Belt", gearShiftPattern: "Auto", clutch: "Centrifugal", ridingRange: "320 km", ridingModes: "No", engineType: "Fi Hybrid", boreStroke: "52.4 x 57.9 mm", compressionRatio: "10.2 : 1", sparkPlugs: "1", battery: "12V 5.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, colors: [{ name: "Matte Red", hex: "#B80F0A", images: ["https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80"] }], accessories: [{ id: "acc-mat", name: "Floor Mat", price: 450, icon: "bi-bounding-box" }], insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 4200 }] },
-      { id: "fascino-125", name: "Fascino 125 Fi Hybrid", offer: "Free RSA 1 Year", videoUrl: "https://youtu.be/og860ziXQOQ", prices: { basic: 81000, middle: 88000, top: 93500 }, specs: { displacement: "125 cc", maxPower: "8.2 bhp", maxTorque: "10.3 Nm", topSpeed: "90 kmph", mileage: "65 kmpl", transmission: "CVT", transmissionType: "Belt", gearShiftPattern: "Auto", clutch: "Centrifugal", ridingRange: "330 km", ridingModes: "No", engineType: "Fi Hybrid", boreStroke: "52.4 x 57.9 mm", compressionRatio: "10.2 : 1", sparkPlugs: "1", battery: "12V 5.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, colors: [{ name: "Cyan", hex: "#00F0FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] }], accessories: [{ id: "acc-guard-full", name: "Steel Guard", price: 2900, icon: "bi-shield-shaded" }], insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 4100 }] },
-      { id: "aerox-e", name: "Aerox-E", offer: "Subsidy Benefit", videoUrl: "https://youtu.be/og860ziXQOQ", prices: { basic: 140000, middle: 155000, top: 170000 }, specs: { displacement: "0 cc EV", maxPower: "6.0 kW Peak", maxTorque: "30 Nm Instant", topSpeed: "95 kmph", mileage: "120 km", transmission: "Direct Drive", transmissionType: "Hub Motor", gearShiftPattern: "Auto", clutch: "Direct", ridingRange: "120 km", ridingModes: "Eco, City, Sport", engineType: "BLDC Motor", boreStroke: "N/A", compressionRatio: "N/A", sparkPlugs: "N/A", battery: "Li-Ion 3.8 kWh", emissionStandard: "Zero Emission", fuelType: "Electric" }, colors: [{ name: "Future White", hex: "#FFFFFF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] }], accessories: [{ id: "acc-fast-chg", name: "Fast Charger", price: 5400, icon: "bi-lightning-charge" }], insurance: [{ id: "ins-1yr", name: "EV Comprehensive", price: 5200 }] }
+      {
+        id: "xsr-155",
+        name: "Yamaha XSR 155",
+        offer: "Zero Down Payment",
+        prices: { basic: 159000, middle: 164000, top: 169000 },
+        specs: { displacement: "155 cc", maxPower: "19.0 bhp @ 10000 rpm", mileage: "48 kmpl", engineType: "Neo-Retro VVA" },
+        colors: [{ name: "Heritage Silver", hex: "#A8A9AD", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "aerox-155",
+        name: "Yamaha Aerox 155",
+        offer: "Complimentary Jacket",
+        prices: { basic: 147000, middle: 151000, top: 153000 },
+        specs: { displacement: "155 cc", maxPower: "14.8 bhp @ 8000 rpm", mileage: "44 kmpl", engineType: "Maxi Sport Scooter" },
+        colors: [{ name: "Racing Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "fzs-fiv4",
+        name: "Yamaha FZS-Fi V4",
+        offer: "Free Bluetooth Kit",
+        prices: { basic: 129000, middle: 132000, top: 135000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp @ 7250 rpm", mileage: "46 kmpl", engineType: "Air Cooled Fi TCS" },
+        colors: [{ name: "Racing Red", hex: "#E60012", images: ["https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "ray-zr-125",
+        name: "Ray ZR 125 Fi Hybrid",
+        offer: "₹3,000 Cash Discount",
+        prices: { basic: 85000, middle: 91000, top: 96000 },
+        specs: { displacement: "125 cc", maxPower: "8.2 bhp @ 6500 rpm", mileage: "62 kmpl", engineType: "Smart Fi Hybrid" },
+        colors: [{ name: "Matte Red", hex: "#B80F0A", images: ["https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "fascino-125",
+        name: "Fascino 125 Fi Hybrid",
+        offer: "Free RSA 1 Year",
+        prices: { basic: 81000, middle: 88000, top: 93500 },
+        specs: { displacement: "125 cc", maxPower: "8.2 bhp @ 6500 rpm", mileage: "65 kmpl", engineType: "Classic Retro Hybrid" },
+        colors: [{ name: "Cyan", hex: "#00F0FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "r15-s",
+        name: "Yamaha R15 S",
+        offer: "Student Benefit ₹4,000",
+        prices: { basic: 165000, middle: 168000, top: 171000 },
+        specs: { displacement: "155 cc", maxPower: "18.3 bhp", mileage: "46 kmpl", engineType: "Unibody Track Seat" },
+        colors: [{ name: "Matte Black", hex: "#1A1A1A", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "fz-fiv3",
+        name: "Yamaha FZ-Fi V3",
+        offer: "Festive Cashback ₹2,500",
+        prices: { basic: 116500, middle: 119500, top: 122000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", mileage: "48 kmpl", engineType: "Air Cooled Fi" },
+        colors: [{ name: "Metallic Cyan", hex: "#00F0FF", images: ["https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "fz-sfi",
+        name: "Yamaha FZ-S Fi",
+        offer: "Low EMI ₹2,999",
+        prices: { basic: 116000, middle: 121000, top: 126000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", mileage: "46 kmpl", engineType: "Air Cooled Fi" },
+        colors: [{ name: "Matte Black", hex: "#111111", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80"] }]
+      },
+      {
+        id: "aerox-e",
+        name: "Yamaha Aerox-E",
+        offer: "Govt Subsidy Eligible",
+        prices: { basic: 140000, middle: 155000, top: 170000 },
+        specs: { displacement: "0 cc EV", maxPower: "6.0 kW Peak", mileage: "120 km range", engineType: "BLDC Hub Motor" },
+        colors: [{ name: "Future White", hex: "#FFFFFF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80"] }]
+      }
     ];
 
-    let currentModelIdx = 0;
-    let currentVariant = 'top';
-    let currentColorIdx = 0;
-    let currentImgIdx = 0;
-    let currentSearchTerm = "";
-    let activeMediaMode = 'photo';
-    let selectedAccessories = new Set();
-    let selectedInsuranceId = null;
+    // Default working showcase video URL
+    let showcaseVideoUrl = localStorage.getItem("yamaha_showcase_video_url") || "https://youtu.be/og860ziXQOQ?si=JKVfn675q_1Smi0H";
+    let showcaseVideoTitle = localStorage.getItem("yamaha_showcase_video_title") || "2026 Yamaha XSR 155 Metallic Walkaround";
 
+    // -------------------------------------------------------------------------
+    // 2. INITIALIZATION & LIVE GOOGLE APPS SCRIPT SYNC
+    // -------------------------------------------------------------------------
     window.addEventListener("DOMContentLoaded", async () => {
       loadStoredLocal();
       if (APPS_SCRIPT_URL) {
         await fetchLiveFromGoogleSheet();
       }
-
-      // Read query params (e.g. ?model=r15-v4)
-      const urlParams = new URLSearchParams(window.location.search);
-      const targetModel = urlParams.get("model");
-      if (targetModel) {
-        const found = database.findIndex(b => 
-          (b.id && b.id.toLowerCase() === targetModel.toLowerCase()) || 
-          (b.name && b.name.toLowerCase().includes(targetModel.toLowerCase()))
-        );
-        if (found !== -1) currentModelIdx = found;
-      }
-
-      renderSidebar();
-      renderMobileDrawer();
-      renderStage(currentModelIdx);
+      renderScrollBikes();
+      setupUniversalVideoPlayer(showcaseVideoUrl);
+      startHeroTimer();
     });
 
     function loadStoredLocal() {
       const stored = localStorage.getItem("yamaha_sai_motors_db");
       if (stored) {
-        try { database = JSON.parse(stored); } catch (e) { console.error(e); }
+        try { showroomDatabase = JSON.parse(stored); } catch (e) { console.error(e); }
       }
+      const savedVid = localStorage.getItem("yamaha_showcase_video_url");
+      if (savedVid) showcaseVideoUrl = savedVid;
+      const savedTitle = localStorage.getItem("yamaha_showcase_video_title");
+      if (savedTitle) showcaseVideoTitle = savedTitle;
     }
 
     async function fetchLiveFromGoogleSheet() {
@@ -763,402 +862,138 @@
         const res = await fetch(`${APPS_SCRIPT_URL}?action=get_all`);
         const json = await res.json();
         if (json.status === "success" && json.data && json.data.length > 0) {
-          database = json.data;
-          localStorage.setItem("yamaha_sai_motors_db", JSON.stringify(database));
+          showroomDatabase = json.data;
+          localStorage.setItem("yamaha_sai_motors_db", JSON.stringify(showroomDatabase));
+        }
+        if (json.video && json.video.url) {
+          showcaseVideoUrl = json.video.url;
+          showcaseVideoTitle = json.video.title || showcaseVideoTitle;
+          localStorage.setItem("yamaha_showcase_video_url", showcaseVideoUrl);
+          localStorage.setItem("yamaha_showcase_video_title", showcaseVideoTitle);
         }
       } catch (err) {
-        console.warn("Using local database cache:", err);
+        console.warn("Using cached showroom data:", err);
       }
     }
 
-    function handleModelSearch(query) {
-      currentSearchTerm = (query || "").trim().toLowerCase();
-      renderSidebar();
-      renderMobileDrawer();
-    }
-
-    function clearSearch() {
-      currentSearchTerm = "";
-      renderSidebar();
-      renderMobileDrawer();
-    }
-
-    function renderSidebar() {
-      const container = document.getElementById("models-sidebar-items");
-      if (!container) return;
+    // -------------------------------------------------------------------------
+    // 3. HORIZONTAL SCROLL POPULATION & 'EXPLODE' NAVIGATION
+    // -------------------------------------------------------------------------
+    function renderScrollBikes() {
+      const container = document.getElementById("bikes-horizontal-scroll");
       container.innerHTML = "";
 
-      const filtered = database
-        .map((bike, originalIndex) => ({ bike, originalIndex }))
-        .filter(item => {
-          if (!currentSearchTerm) return true;
-          return item.bike.name.toLowerCase().includes(currentSearchTerm);
-        });
+      showroomDatabase.forEach(b => {
+        const primaryColor = (b.colors && b.colors[0]) ? b.colors[0] : null;
+        const imgUrl = (primaryColor && primaryColor.images && primaryColor.images[0]) 
+          ? primaryColor.images[0] 
+          : "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80";
 
-      document.getElementById("models-total-badge").innerText = `${filtered.length} Models`;
+        const basicPrice = (b.prices && b.prices.basic) ? b.prices.basic : 0;
+        const topPrice = (b.prices && b.prices.top) ? b.prices.top : 0;
+        const s = b.specs || {};
 
-      filtered.forEach(({ bike, originalIndex }) => {
-        const div = document.createElement("div");
-        div.className = `model-sidebar-item p-3 ${originalIndex === currentModelIdx ? 'active' : ''}`;
-        div.onclick = () => selectModel(originalIndex);
-        div.innerHTML = `
-          <div class="d-flex justify-content-between align-items-center">
+        const card = document.createElement("div");
+        card.className = "bike-card";
+        card.innerHTML = `
+          <div class="bike-card-img-wrap">
+            <span class="badge bg-danger font-racing position-absolute" style="top:12px; left:12px;">${b.offer || 'Dealership Special'}</span>
+            <img src="${imgUrl}" alt="${b.name}" class="bike-card-img" onerror="this.src='https://placehold.co/400x250/0E1626/00F0FF?text=Yamaha+Motor'">
+          </div>
+          <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
             <div>
-              <div class="fw-bold font-racing fs-5">${bike.name}</div>
-              <div class="small" style="color:var(--yamaha-cyan);">₹ ${(bike.prices[currentVariant] || bike.prices.top).toLocaleString('en-IN')}</div>
-            </div>
-            <i class="bi bi-chevron-right small text-secondary"></i>
-          </div>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    function renderMobileDrawer() {
-      const container = document.getElementById("mobile-models-drawer-items");
-      if (!container) return;
-      container.innerHTML = "";
-
-      const filtered = database
-        .map((bike, originalIndex) => ({ bike, originalIndex }))
-        .filter(item => {
-          if (!currentSearchTerm) return true;
-          return item.bike.name.toLowerCase().includes(currentSearchTerm);
-        });
-
-      filtered.forEach(({ bike, originalIndex }) => {
-        const div = document.createElement("div");
-        div.className = `model-sidebar-item p-3 mb-2 ${originalIndex === currentModelIdx ? 'active' : ''}`;
-        div.onclick = () => {
-          selectModel(originalIndex);
-          const drawer = bootstrap.Offcanvas.getInstance(document.getElementById('mobileModelsDrawer'));
-          if (drawer) drawer.hide();
-        };
-        div.innerHTML = `
-          <div class="d-flex justify-content-between align-items-center">
-            <div>
-              <div class="fw-bold font-racing fs-5 text-white">${bike.name}</div>
-              <div class="small" style="color:var(--yamaha-cyan);">₹ ${(bike.prices[currentVariant] || bike.prices.top).toLocaleString('en-IN')}</div>
-            </div>
-            <i class="bi bi-arrow-right-circle text-info fs-4"></i>
-          </div>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    function selectModel(idx) {
-      currentModelIdx = idx;
-      currentColorIdx = 0;
-      currentImgIdx = 0;
-      activeMediaMode = 'photo';
-      selectedAccessories.clear();
-      selectedInsuranceId = null;
-      renderSidebar();
-      renderMobileDrawer();
-      renderStage(idx);
-    }
-
-    function setMediaMode(mode) {
-      activeMediaMode = mode;
-      const photoBtn = document.getElementById("btn-mobile-photo");
-      const videoBtn = document.getElementById("btn-mobile-video");
-      if (photoBtn) photoBtn.classList.toggle("active", mode === 'photo');
-      if (videoBtn) videoBtn.classList.toggle("active", mode === 'video');
-
-      const photoBox = document.getElementById("photo-display-container");
-      const videoBox = document.getElementById("video-display-container");
-
-      if (mode === 'photo') {
-        photoBox.classList.remove("d-none");
-        videoBox.classList.add("d-none");
-        videoBox.innerHTML = "";
-      } else {
-        photoBox.classList.add("d-none");
-        videoBox.classList.remove("d-none");
-        mountUniversalVideoPlayer();
-      }
-      renderThumbnailsFilmstrip();
-    }
-
-    function mountUniversalVideoPlayer() {
-      const bike = database[currentModelIdx];
-      const videoBox = document.getElementById("video-display-container");
-      videoBox.innerHTML = "";
-
-      const rawUrl = (bike && bike.videoUrl) ? bike.videoUrl.trim() : "https://youtu.be/og860ziXQOQ";
-      const ytMatch = rawUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
-
-      if (ytMatch && ytMatch[1]) {
-        videoBox.innerHTML = `
-          <iframe 
-            src="https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&mute=1&loop=1&playlist=${ytMatch[1]}&controls=1&rel=0&playsinline=1" 
-            title="${bike.name} Walkaround" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        `;
-      } else {
-        videoBox.innerHTML = `
-          <video autoplay muted loop playsinline controls class="w-100 h-100">
-            <source src="${rawUrl}">
-          </video>
-        `;
-      }
-    }
-
-    function renderStage(idx) {
-      const bike = database[idx];
-      if (!bike) return;
-
-      document.getElementById("stage-bike-title").innerText = bike.name;
-      document.getElementById("stage-offer-badge").innerText = bike.offer || "Special Deal";
-      document.getElementById("stage-variant-indicator").innerText = `TRIM: ${currentVariant.toUpperCase()}`;
-      
-      const price = bike.prices[currentVariant] || bike.prices.top;
-      document.getElementById("stage-bike-price").innerText = `₹ ${price.toLocaleString('en-IN')}`;
-
-      // Swatches
-      const swatchBox = document.getElementById("color-swatches-container");
-      swatchBox.innerHTML = "";
-      (bike.colors || []).forEach((c, ci) => {
-        const sw = document.createElement("div");
-        sw.className = `color-swatch-circle ${ci === currentColorIdx ? 'active' : ''}`;
-        sw.style.backgroundColor = c.hex;
-        sw.title = c.name;
-        sw.onclick = () => {
-          currentColorIdx = ci;
-          currentImgIdx = 0;
-          setMediaMode('photo');
-          renderStage(idx);
-        };
-        swatchBox.appendChild(sw);
-      });
-
-      // Photos
-      const activeColor = (bike.colors && bike.colors[currentColorIdx]) ? bike.colors[currentColorIdx] : (bike.colors ? bike.colors[0] : null);
-      const images = (activeColor && activeColor.images) ? activeColor.images : [];
-      document.getElementById("stage-main-image").src = images[currentImgIdx] || images[0] || "https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png";
-
-      if (activeMediaMode === 'video') {
-        mountUniversalVideoPlayer();
-      }
-
-      renderThumbnailsFilmstrip();
-
-      // Complete 18 Technical Specifications
-      const s = bike.specs || {};
-      document.getElementById("spec-engine-badge").innerText = s.emissionStandard || "BS6 Phase 2B Compliant";
-
-      const specDefinitions = [
-        { label: "Displacement", val: s.displacement || "155 cc", icon: "bi-cpu" },
-        { label: "Max Power", val: s.maxPower || "18.1 bhp", icon: "bi-lightning-charge" },
-        { label: "Max Torque", val: s.maxTorque || "14.2 Nm", icon: "bi-activity" },
-        { label: "Top Speed", val: s.topSpeed || "125 kmph", icon: "bi-speedometer" },
-        { label: "Mileage", val: s.mileage || "46 kmpl", icon: "bi-fuel-pump" },
-        { label: "Transmission", val: s.transmission || "6 Speed", icon: "bi-gear-wide" },
-        { label: "Drive Type", val: s.transmissionType || "Chain", icon: "bi-link-45deg" },
-        { label: "Shift Pattern", val: s.gearShiftPattern || "1 Down 5 Up", icon: "bi-arrow-down-up" },
-        { label: "Clutch", val: s.clutch || "Assist & Slipper", icon: "bi-hand-index" },
-        { label: "Range", val: s.ridingRange || "460 km", icon: "bi-geo-alt" },
-        { label: "Modes", val: s.ridingModes || "No", icon: "bi-sliders" },
-        { label: "Engine Type", val: s.engineType || "Liquid Cooled 4V", icon: "bi-wrench-adjustable" },
-        { label: "Bore x Stroke", val: s.boreStroke || "58 x 58.7 mm", icon: "bi-aspect-ratio" },
-        { label: "Compression", val: s.compressionRatio || "11.6 : 1", icon: "bi-pie-chart" },
-        { label: "Spark Plugs", val: s.sparkPlugs || "1 Per Cyl", icon: "bi-plug" },
-        { label: "Battery", val: s.battery || "12V 4.0Ah", icon: "bi-battery-charging" },
-        { label: "Compliance", val: s.emissionStandard || "BS6 Phase 2B", icon: "bi-shield-check" },
-        { label: "Fuel Type", val: s.fuelType || "Petrol", icon: "bi-droplet-half" }
-      ];
-
-      const specsBox = document.getElementById("specs-container-grid");
-      specsBox.innerHTML = "";
-      specDefinitions.forEach(spec => {
-        const col = document.createElement("div");
-        col.className = "col-6 col-md-4 col-lg-3";
-        col.innerHTML = `
-          <div class="spec-item-box">
-            <span class="spec-label d-block"><i class="bi ${spec.icon} text-info me-1"></i>${spec.label}</span>
-            <span class="spec-value d-block">${spec.val}</span>
-          </div>
-        `;
-        specsBox.appendChild(col);
-      });
-
-      // Extrafiting Accessories[cite: 1]
-      const accBox = document.getElementById("accessories-grid");
-      accBox.innerHTML = "";
-      (bike.accessories || []).forEach(acc => {
-        const col = document.createElement("div");
-        col.className = "col-12 col-md-6";
-        const isSel = selectedAccessories.has(acc.id);
-        col.innerHTML = `
-          <div class="accessory-item-card d-flex align-items-center justify-content-between ${isSel ? 'selected' : ''}" 
-               onclick="toggleAccessorySelection('${acc.id}', this)">
-            <div class="d-flex align-items-center gap-3">
-              <i class="bi ${acc.icon || 'bi-gear'} fs-3 text-info"></i>
-              <div>
-                <div class="fw-bold text-white">${acc.name}</div>
-                <div class="small font-racing text-info">+ ₹ ${acc.price.toLocaleString('en-IN')}</div>
+              <h4 class="font-racing fw-bold text-white mb-1 fs-5">${b.name}</h4>
+              <div class="h5 font-racing fw-bold text-info mb-2">₹ ${basicPrice.toLocaleString('en-IN')} <span class="small text-secondary fw-normal">to ₹ ${topPrice.toLocaleString('en-IN')}</span></div>
+              <div class="row g-2 mb-3 text-secondary small">
+                <div class="col-6 text-truncate"><i class="bi bi-cpu text-info"></i> ${s.displacement || '155 cc'}</div>
+                <div class="col-6 text-truncate"><i class="bi bi-lightning-charge text-info"></i> ${s.maxPower || '18.1 bhp'}</div>
+                <div class="col-12"><i class="bi bi-fuel-pump text-info"></i> Mileage: ${s.mileage || '46 kmpl'}</div>
               </div>
             </div>
-            <input type="checkbox" class="form-check-input" ${isSel ? 'checked' : ''}>
+            <!-- Connected directly to user.html with query parameter -->
+            <a href="user.html?model=${encodeURIComponent(b.id || b.name)}" class="btn btn-racing-primary w-100 py-2 fs-6">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Explode Bike Model
+            </a>
           </div>
         `;
-        accBox.appendChild(col);
+        container.appendChild(card);
       });
+    }
 
-      // Insurance
-      const insBox = document.getElementById("insurance-grid");
-      insBox.innerHTML = "";
-      (bike.insurance || []).forEach(ins => {
-        const col = document.createElement("div");
-        col.className = "col-12 col-md-6";
-        const isSel = selectedInsuranceId === ins.id;
-        col.innerHTML = `
-          <div class="insurance-option-card d-flex align-items-center justify-content-between ${isSel ? 'selected' : ''}" 
-               onclick="selectInsuranceOption('${ins.id}', this)">
-            <div>
-              <div class="fw-bold text-white">${ins.name}</div>
-              <div class="small font-racing text-info">+ ₹ ${ins.price.toLocaleString('en-IN')}</div>
-            </div>
-            <input type="radio" name="ins_choice" class="form-check-input" ${isSel ? 'checked' : ''}>
+    function scrollBikes(dir) {
+      const el = document.getElementById("bikes-horizontal-scroll");
+      const cardWidth = window.innerWidth < 576 ? window.innerWidth * 0.84 : 350;
+      el.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. RELIABLE VIDEO PARSER WITH NATIVE & YOUTUBE PLAYER
+    // -------------------------------------------------------------------------
+    function setupUniversalVideoPlayer(url) {
+      const container = document.getElementById("universal-video-container");
+      container.innerHTML = "";
+      document.getElementById("showcase-video-title").innerText = showcaseVideoTitle;
+
+      // Extract YouTube Video ID
+      const ytRegex = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/;
+      const ytMatch = url.match(ytRegex);
+
+      if (ytMatch && ytMatch[1]) {
+        const videoId = ytMatch[1];
+        container.innerHTML = `
+          <iframe 
+            src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=1&rel=0&playsinline=1&modestbranding=1&enablejsapi=1" 
+            title="${showcaseVideoTitle}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+          <div class="video-audio-badge">
+            <i class="bi bi-volume-mute-fill me-1"></i> Auto-Muted (Tap to un-mute)
           </div>
         `;
-        insBox.appendChild(col);
-      });
-
-      updateGrandTotal();
-    }
-
-    function renderThumbnailsFilmstrip() {
-      const bike = database[currentModelIdx];
-      const activeColor = (bike.colors && bike.colors[currentColorIdx]) ? bike.colors[currentColorIdx] : (bike.colors ? bike.colors[0] : null);
-      const images = (activeColor && activeColor.images) ? activeColor.images : [];
-      const thumbBox = document.getElementById("thumbnails-container");
-      thumbBox.innerHTML = "";
-
-      images.forEach((img, ii) => {
-        const btn = document.createElement("button");
-        btn.className = `thumb-btn ${(activeMediaMode === 'photo' && ii === currentImgIdx) ? 'active' : ''}`;
-        btn.innerHTML = `<img src="${img}" class="w-100 h-100 object-fit-contain" alt="thumb">`;
-        btn.onclick = () => {
-          currentImgIdx = ii;
-          setMediaMode('photo');
-        };
-        thumbBox.appendChild(btn);
-      });
-
-      const videoThumb = document.createElement("button");
-      videoThumb.className = `thumb-btn video-thumb ${activeMediaMode === 'video' ? 'active' : ''}`;
-      videoThumb.title = "Play Video";
-      videoThumb.innerHTML = `<i class="bi bi-play-btn-fill"></i>`;
-      videoThumb.onclick = () => setMediaMode('video');
-      thumbBox.appendChild(videoThumb);
-    }
-
-    function switchVariant(variantKey, btn) {
-      currentVariant = variantKey;
-      document.querySelectorAll(".variant-btn-group button").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      renderSidebar();
-      renderMobileDrawer();
-      renderStage(currentModelIdx);
-    }
-
-    function nextSlide() {
-      const bike = database[currentModelIdx];
-      const imgs = ((bike.colors && bike.colors[currentColorIdx]) || bike.colors[0]).images || [];
-      if (imgs.length > 0) {
-        currentImgIdx = (currentImgIdx + 1) % imgs.length;
-        setMediaMode('photo');
-      }
-    }
-
-    function prevSlide() {
-      const bike = database[currentModelIdx];
-      const imgs = ((bike.colors && bike.colors[currentColorIdx]) || bike.colors[0]).images || [];
-      if (imgs.length > 0) {
-        currentImgIdx = (currentImgIdx - 1 + imgs.length) % imgs.length;
-        setMediaMode('photo');
-      }
-    }
-
-    function toggleAccessorySelection(id) {
-      if (selectedAccessories.has(id)) selectedAccessories.delete(id);
-      else selectedAccessories.add(id);
-      renderStage(currentModelIdx);
-    }
-
-    function selectInsuranceOption(id) {
-      selectedInsuranceId = (selectedInsuranceId === id) ? null : id;
-      renderStage(currentModelIdx);
-    }
-
-    function updateGrandTotal() {
-      const bike = database[currentModelIdx];
-      if (!bike) return;
-      let total = bike.prices[currentVariant] || bike.prices.top;
-
-      (bike.accessories || []).forEach(acc => {
-        if (selectedAccessories.has(acc.id)) total += acc.price;
-      });
-
-      if (selectedInsuranceId) {
-        const ins = (bike.insurance || []).find(i => i.id === selectedInsuranceId);
-        if (ins) total += ins.price;
+        return;
       }
 
-      document.getElementById("grand-total-display").innerText = `₹ ${total.toLocaleString('en-IN')}`;
+      // Check if standard HTML5 video format or Fallback Sample
+      const isHtml5 = url.endsWith(".mp4") || url.endsWith(".webm") || url.endsWith(".mov") || url.startsWith("data:video/");
+      const videoSource = isHtml5 ? url : "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4";
+
+      container.innerHTML = `
+        <video autoplay muted loop playsinline controls class="w-100 h-100 object-fit-cover" id="hero-native-video">
+          <source src="${videoSource}" type="video/mp4">
+          Your browser does not support HTML5 video streaming.
+        </video>
+        <div class="video-audio-badge">
+          <i class="bi bi-volume-mute-fill me-1"></i> Auto-Muted
+        </div>
+      `;
     }
 
-    function openContactModal() {
-      const bike = database[currentModelIdx];
-      document.getElementById("cust-config").value = `${bike.name} [${currentVariant.toUpperCase()} TRIM]`;
-      const modal = new bootstrap.Modal(document.getElementById('contactModal'));
-      modal.show();
+    // -------------------------------------------------------------------------
+    // 5. HERO SLIDESHOW LOGIC
+    // -------------------------------------------------------------------------
+    let currentHeroSlide = 0;
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".dot-btn");
+
+    function setHeroSlide(idx) {
+      slides.forEach((s, i) => s.classList.toggle("active", i === idx));
+      dots.forEach((d, i) => d.classList.toggle("active", i === idx));
+      currentHeroSlide = idx;
     }
 
-    async function submitCustomerInquiry(e) {
-      e.preventDefault();
-      const btn = document.getElementById("btn-submit-inquiry");
-      btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span> Submitting...`;
-      btn.disabled = true;
+    function startHeroTimer() {
+      setInterval(() => {
+        let next = (currentHeroSlide + 1) % slides.length;
+        setHeroSlide(next);
+      }, 5500);
+    }
 
-      const payload = {
-        action: "new_booking",
-        timestamp: new Date().toISOString(),
-        fullName: document.getElementById("cust-name").value.trim(),
-        mobileNumber: document.getElementById("cust-phone").value.trim(),
-        email: document.getElementById("cust-email").value.trim() || "Not Provided",
-        modelRequested: document.getElementById("cust-config").value,
-        preferredDate: document.getElementById("cust-date").value,
-        inquiryType: document.getElementById("cust-type").value,
-        message: document.getElementById("cust-message").value.trim() || "No message",
-        accessories: Array.from(selectedAccessories).join(", ") || "None",
-        insurance: selectedInsuranceId || "None"
-      };
-
-      if (APPS_SCRIPT_URL) {
-        try {
-          await fetch(APPS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          alert("Thank you, " + payload.fullName + "! Your booking request has been sent to Yamaha Sai Motors.");
-          document.getElementById("contact-inquiry-form").reset();
-        } catch (err) {
-          alert("Inquiry recorded locally. Please verify your connection.");
-        }
-      } else {
-        alert("Inquiry submitted in offline demo mode!");
-      }
-
-      btn.innerHTML = `<i class="bi bi-send-check me-2"></i> Submit Inquiry To Yamaha Sai Motors`;
-      btn.disabled = false;
-      bootstrap.Modal.getInstance(document.getElementById('contactModal')).hide();
+    // -------------------------------------------------------------------------
+    // 6. FLOATING ACTION BUTTON (FAB)
+    // -------------------------------------------------------------------------
+    function toggleFab() {
+      document.getElementById("fab-container").classList.toggle("active");
     }
   </script>
 </body>
