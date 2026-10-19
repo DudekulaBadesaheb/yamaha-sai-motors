@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Yamaha Sai Motors | Flagship Showroom</title>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Yamaha Sai Motors | Official Showroom & 360 Studio</title>
+
   <!-- Bootstrap 5 CSS & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Montserrat Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --yamaha-navy: #050811;
       --yamaha-surface: #0E1626;
-      --yamaha-surface-glass: rgba(14, 22, 38, 0.82);
+      --yamaha-surface-glass: rgba(14, 22, 38, 0.85);
       --yamaha-card: rgba(20, 31, 54, 0.65);
-      --yamaha-card-hover: rgba(28, 44, 76, 0.85);
+      --yamaha-card-hover: rgba(28, 44, 76, 0.90);
       --yamaha-blue: #0044EE;
       --yamaha-cyan: #00F0FF;
       --yamaha-red: #E60012;
@@ -32,18 +37,24 @@
     html, body {
       background-color: var(--yamaha-navy);
       color: var(--text-main);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Montserrat', sans-serif !important;
       min-height: 100vh;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 12% 18%, rgba(0, 68, 238, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 12% 18%, rgba(0, 68, 238, 0.16) 0%, transparent 45%),
         radial-gradient(circle at 88% 70%, rgba(0, 240, 255, 0.10) 0%, transparent 45%),
         linear-gradient(180deg, #050811 0%, #090F1C 100%);
       background-attachment: fixed;
     }
-    .font-racing { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; }
 
-    /* Custom Ambient Scrollbar */
+    .font-racing { 
+      font-family: 'Montserrat', sans-serif !important; 
+      font-weight: 800 !important; 
+      text-transform: uppercase !important; 
+      letter-spacing: 0.5px;
+    }
+
+    /* Ambient Scrollbar */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
     ::-webkit-scrollbar-track { background: var(--yamaha-navy); }
     ::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.35); border-radius: 4px; }
@@ -51,24 +62,24 @@
 
     /* Header */
     header.clean-header {
-      background: rgba(7, 11, 20, 0.90);
+      background: rgba(7, 11, 20, 0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-glow);
       position: sticky;
       top: 0;
       z-index: 1030;
-      height: 62px;
+      height: 64px;
       display: flex;
       align-items: center;
     }
     .brand-logo-symbol { height: 38px; width: auto; object-fit: contain; }
 
-    /* Master Desktop Grid */
+    /* Layout Grid */
     .showroom-grid {
       display: grid;
-      grid-template-columns: 310px 1fr;
-      min-height: calc(100vh - 62px);
+      grid-template-columns: 290px 1fr;
+      min-height: calc(100vh - 64px);
       max-width: 1720px;
       margin: 0 auto;
       width: 100%;
@@ -78,21 +89,22 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-right: 1px solid var(--border-glow);
-      max-height: calc(100vh - 62px);
+      max-height: calc(100vh - 64px);
       overflow-y: auto;
       position: sticky;
-      top: 62px;
+      top: 64px;
     }
 
-    /* Live Search */
+    /* Search Box */
     .search-box-wrapper { position: relative; }
     .search-input-field {
       background-color: rgba(7, 11, 20, 0.8) !important;
       border: 1px solid var(--border-subtle) !important;
       color: #fff !important;
       border-radius: 10px;
-      padding: 9px 36px 9px 36px;
-      font-size: 0.85rem;
+      padding: 8px 32px 8px 34px;
+      font-size: 0.82rem;
+      font-family: 'Montserrat', sans-serif;
     }
     .search-input-field:focus {
       border-color: var(--yamaha-cyan) !important;
@@ -105,6 +117,7 @@
       transform: translateY(-50%);
       color: var(--text-muted);
       pointer-events: none;
+      font-size: 0.85rem;
     }
     .clear-search-btn {
       position: absolute;
@@ -118,25 +131,77 @@
       display: none;
     }
 
-    .model-sidebar-item {
-      background: var(--yamaha-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      margin-bottom: 7px;
-      color: #fff;
-      cursor: pointer;
+    /* Model Selection Cards */
+    .model-compact-card {
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      color: #070B14;
+      border: 2px solid transparent;
       transition: all 0.25s var(--ease);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
-    .model-sidebar-item:hover {
-      background: var(--yamaha-card-hover);
-      border-color: rgba(0, 240, 255, 0.5);
-      transform: translateX(3px);
-    }
-    .model-sidebar-item.active {
-      background: linear-gradient(90deg, rgba(0, 68, 238, 0.85), rgba(0, 240, 255, 0.3));
+    .model-compact-card:hover {
+      transform: translateY(-2px);
       border-color: var(--yamaha-cyan);
-      box-shadow: 0 4px 18px rgba(0, 240, 255, 0.28);
-      transform: translateX(5px);
+      box-shadow: 0 6px 18px rgba(0, 240, 255, 0.35);
+    }
+    .model-compact-card.active {
+      border-color: var(--yamaha-blue);
+      box-shadow: 0 0 14px rgba(0, 68, 238, 0.6);
+      background: #FFFFFF;
+    }
+    .model-card-thumb-wrap {
+      width: 100%;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+    .model-card-thumb-img {
+      max-width: 90%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 6px rgba(0,0,0,0.12));
+    }
+    .model-card-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .model-card-tagline {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #8E9DB5;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+    }
+    .btn-find-more {
+      background-color: #001489;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.78rem;
+      border-radius: 4px;
+      padding: 6px 10px;
+      width: 100%;
+      text-align: center;
+      border: none;
+      transition: background 0.2s;
+    }
+    .btn-find-more:hover {
+      background-color: #0022cc;
+      color: #FFFFFF;
     }
 
     .stage-card {
@@ -185,6 +250,28 @@
       display: block;
     }
 
+    /* Interactive 360 Canvas */
+    .viewer-360-canvas-box {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 65%, #182846 0%, #050811 88%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .viewer-360-canvas-box:active { cursor: grabbing; }
+    .bike-360-frame {
+      max-width: 88%;
+      max-height: 86%;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.9));
+      pointer-events: none;
+    }
+
     .slide-nav-btn {
       position: absolute;
       top: 50%;
@@ -221,7 +308,7 @@
       gap: 12px;
     }
 
-    /* Color Swatch Area */
+    /* Color Swatches */
     .color-picker-group {
       display: flex;
       align-items: center;
@@ -256,7 +343,7 @@
       text-shadow: 0 0 4px #000;
     }
 
-    /* Symmetrical Thumbnails Strip */
+    /* Mini Thumbnails */
     .mini-thumbnail-strip {
       display: flex;
       align-items: center;
@@ -266,8 +353,8 @@
       padding: 2px 4px;
     }
     .thumb-btn {
-      width: 78px;
-      height: 52px;
+      width: 76px;
+      height: 50px;
       border-radius: 8px;
       border: 1px solid var(--border-subtle);
       background: #070B14;
@@ -296,40 +383,62 @@
       transform: translateY(-2px);
     }
 
-    /* Video Play Trigger Button */
+    /* Action Trigger Chips */
     .thumb-btn.video-thumb-chip {
       width: auto;
       padding: 0 14px;
       background: linear-gradient(135deg, rgba(230, 0, 18, 0.22), #0E1626);
       border-color: rgba(230, 0, 18, 0.6);
       color: #fff;
-      font-family: 'Rajdhani', sans-serif;
       font-weight: 700;
       font-size: 0.85rem;
       gap: 6px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    .thumb-btn.video-thumb-chip i {
-      color: var(--yamaha-red);
-      font-size: 1.15rem;
-    }
+    .thumb-btn.video-thumb-chip i { color: var(--yamaha-red); font-size: 1.15rem; }
     .thumb-btn.video-thumb-chip.active {
       border-color: var(--yamaha-cyan);
       background: rgba(0, 68, 238, 0.35);
       box-shadow: 0 0 14px rgba(0, 240, 255, 0.6);
     }
-    .thumb-btn.video-thumb-chip.active i {
-      color: var(--yamaha-cyan);
+
+    .thumb-btn.viewer-360-chip {
+      width: auto;
+      padding: 0 14px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.18), #0E1626);
+      border-color: rgba(0, 240, 255, 0.5);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .thumb-btn.viewer-360-chip i { color: var(--yamaha-cyan); font-size: 1.15rem; }
+    .thumb-btn.viewer-360-chip.active {
+      border-color: var(--yamaha-cyan);
+      background: rgba(0, 68, 238, 0.45);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.65);
+    }
+
+    .turntable-slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: rgba(7, 11, 20, 0.7);
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
     }
 
     /* Trims */
     .variant-btn-group .btn-outline-cyan {
       border-color: var(--yamaha-cyan);
       color: var(--yamaha-cyan);
-      font-family: 'Rajdhani', sans-serif;
       font-weight: 700;
       letter-spacing: 0.5px;
+      font-family: 'Montserrat', sans-serif;
     }
     .variant-btn-group .btn-outline-cyan.active,
     .variant-btn-group .btn-outline-cyan:hover {
@@ -361,8 +470,7 @@
       margin-bottom: 2px;
     }
     .spec-value {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #fff;
     }
@@ -388,7 +496,7 @@
       box-shadow: 0 0 14px rgba(0, 240, 255, 0.25);
     }
 
-    /* Permanent Mobile Bottom Glass Bar */
+    /* Mobile Bottom Glass Bar */
     .mobile-bottom-bar {
       position: fixed;
       bottom: 0;
@@ -455,9 +563,7 @@
 </head>
 <body>
 
-  <!-- =========================================================================
-       1. HEADER (LOGO SYMBOL & NAME ONLY)
-       ========================================================================= -->
+  <!-- Header -->
   <header class="clean-header px-3 px-lg-4">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <a href="home.html" class="text-decoration-none d-flex align-items-center gap-2 gap-md-3">
@@ -466,33 +572,29 @@
              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_Motor_logo.svg'">
         <div>
           <h1 class="h5 mb-0 font-racing text-white fw-bold">YAMAHA <span style="color:var(--yamaha-cyan);">SAI MOTORS</span></h1>
-          <span class="small text-secondary font-racing d-none d-sm-inline" style="letter-spacing:1px;">OFFICIAL SHOWROOM PORTAL</span>
+          <span class="small text-secondary font-racing d-none d-sm-inline" style="letter-spacing:1px; font-size:0.75rem;">SHOWROOM & 360 STUDIO</span>
         </div>
       </a>
 
-      <!-- Desktop-Only Nav Items -->
       <div class="d-none d-lg-flex gap-2 align-items-center">
-        <a href="home.html" class="btn btn-outline-light btn-sm font-racing px-3">Home</a>
-        <button class="btn btn-primary btn-sm font-racing px-3" onclick="openContactModal()">Contact AS</button>
+        <a href="index.html" class="btn btn-outline-light btn-sm font-racing px-3">Home</a>
+        <button class="btn btn-primary btn-sm font-racing px-3" onclick="openContactModal()">Contact Us</button>
       </div>
     </div>
   </header>
 
-  <!-- =========================================================================
-       2. SHOWROOM GRID (DESKTOP SIDEBAR + DYNAMIC STAGE)
-       ========================================================================= -->
+  <!-- Showroom Grid -->
   <div class="showroom-grid">
-    <!-- Desktop-Only Sidebar (310px) -->
     <aside class="models-list-group p-3 desktop-sidebar">
       <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom border-secondary">
         <span class="font-racing text-cyan fw-bold" style="color:var(--yamaha-cyan); font-size:0.95rem;">Select Model</span>
-        <span class="badge bg-secondary" id="models-total-badge">11 Models</span>
+        <span class="badge bg-secondary" id="models-total-badge">12 Models</span>
       </div>
 
       <!-- Live Search -->
       <div class="search-box-wrapper mb-3">
         <i class="bi bi-search search-icon-left"></i>
-        <input type="text" class="form-control search-input-field" id="model-search-input" placeholder="Search model (e.g. R15, MT)..." oninput="handleModelSearch(this.value)">
+        <input type="text" class="form-control search-input-field" id="model-search-input" placeholder="Search model..." oninput="handleModelSearch(this.value)">
         <button type="button" class="clear-search-btn" id="clear-search-btn" onclick="clearSearch()"><i class="bi bi-x-circle-fill"></i></button>
       </div>
 
@@ -510,13 +612,12 @@
               <span class="badge bg-danger font-racing" id="stage-offer-badge">Festival Offer</span>
               <span class="text-secondary small font-racing" id="stage-variant-indicator">TRIM: TOP</span>
             </div>
-            <h2 class="display-6 fw-bold font-racing mb-0 text-white" id="stage-bike-title">R15 V4</h2>
+            <h2 class="display-6 fw-bold font-racing mb-0 text-white" id="stage-bike-title">R15M</h2>
             <div class="d-flex align-items-baseline gap-2 mt-1">
-              <span class="h3 font-racing fw-bold" style="color:var(--yamaha-cyan);" id="stage-bike-price">₹ 1,82,500</span>
+              <span class="h3 font-racing fw-bold" style="color:var(--yamaha-cyan);" id="stage-bike-price">₹ 1,98,000</span>
               <span class="text-secondary small">(Ex-Showroom)</span>
             </div>
           </div>
-          <!-- Basic / Middle / Top Trims[cite: 1] -->
           <div class="btn-group variant-btn-group" role="group">
             <button type="button" class="btn btn-outline-cyan px-3 py-2" onclick="switchVariant('basic', this)">Basic</button>
             <button type="button" class="btn btn-outline-cyan px-3 py-2" onclick="switchVariant('middle', this)">Middle</button>
@@ -525,36 +626,56 @@
         </div>
       </div>
 
-      <!-- Stage 2: Main Viewport & Redesigned Symmetrical Bottom Bar -->
+      <!-- Stage 2: Main Viewport (Photo, Interactive 360 & Video) -->
       <div class="stage-card overflow-hidden">
         <div class="media-viewport">
-          <!-- Photo Viewport -->
+          <!-- 1. Photo Viewport -->
           <div id="photo-display-container" class="w-100 h-100 d-flex align-items-center justify-content-center">
             <button class="slide-nav-btn" style="left:15px;" onclick="prevSlide()">&#10094;</button>
             <img src="" alt="Yamaha Bike" class="main-bike-img" id="stage-main-image">
             <button class="slide-nav-btn" style="right:15px;" onclick="nextSlide()">&#10095;</button>
           </div>
 
-          <!-- Video Viewport (Fixed for YouTube Error 153) -->
+          <!-- 2. Interactive 360 Degree Viewport -->
+          <div id="viewer-360-container" class="w-100 h-100 d-none position-relative"></div>
+
+          <!-- 3. Video Viewport -->
           <div id="video-display-container" class="video-frame-container d-none"></div>
         </div>
 
-        <!-- NEW FIXED PROPORTIONAL BOTTOM BAR (COLORS + COMPACT THUMBNAILS + VIDEO TRIGGER)[cite: 3] -->
+        <!-- Symmetrical Bottom Bar -->
         <div class="stage-bottom-control-bar">
-          <!-- Left: Filtered Color Swatches[cite: 3] -->
+          <!-- Left: Filtered Color Swatches -->
           <div class="color-picker-group">
-            <span class="font-racing fw-bold small text-secondary" style="letter-spacing:1px;">COLORS:</span>
+            <span class="font-racing fw-bold small text-secondary" style="letter-spacing:1px; font-size:0.75rem;">COLORS:</span>
             <div class="d-flex align-items-center gap-2" id="color-swatches-container"></div>
             <span class="small font-racing text-info ms-1 d-none d-sm-inline" id="active-color-name-badge">Racing Blue</span>
           </div>
 
-          <!-- Right: Mini-Thumbnails & Video Chip[cite: 3] -->
+          <!-- Middle: 40-Frame Turntable Controls -->
+          <div id="turntable-controls-wrap" class="d-none align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-info font-racing" id="user-auto-spin-btn" onclick="toggleUserAutoSpin360()">
+              <i class="bi bi-play-circle-fill me-1"></i> Spin
+            </button>
+            <div class="turntable-slider-wrap">
+              <input type="range" class="form-range" id="user-slider-360" min="1" max="40" value="1" oninput="setUser360Frame(this.value)" style="width: 140px;">
+            </div>
+          </div>
+
+          <!-- Right: Mini-Thumbnails & Action Chips -->
           <div class="mini-thumbnail-strip">
             <div class="d-flex align-items-center gap-2" id="thumbnails-container"></div>
-            <!-- Video Walkaround Trigger Button[cite: 3] -->
-            <button class="thumb-btn video-thumb-chip" id="video-chip-btn" onclick="toggleVideoChip()" title="Watch Walkaround Video">
+            
+            <!-- 360 Degree View Trigger Button -->
+            <button class="thumb-btn viewer-360-chip" id="chip-360-btn" onclick="toggle360Chip()" title="Interactive 360° View">
+              <i class="bi bi-arrow-repeat"></i>
+              <span class="d-none d-sm-inline font-racing">360° View</span>
+            </button>
+
+            <!-- Video Walkaround Button -->
+            <button class="thumb-btn video-thumb-chip" id="video-chip-btn" onclick="toggleVideoChip()" title="Walkaround Video">
               <i class="bi bi-play-circle-fill"></i>
-              <span class="d-none d-sm-inline">Video</span>
+              <span class="d-none d-sm-inline font-racing">Video</span>
             </button>
           </div>
         </div>
@@ -574,13 +695,13 @@
         <div class="row g-2 g-md-3" id="specs-container-grid"></div>
       </div>
 
-      <!-- Stage 4: Extrafiting / Accessories[cite: 1] -->
+      <!-- Stage 4: Extrafiting / Accessories -->
       <div class="stage-card p-3 p-lg-4" id="extrafitting-section">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h3 class="h4 font-racing text-white mb-0" style="color:var(--yamaha-cyan);">
             <i class="bi bi-gear-wide-connected me-2"></i>Model Extrafiting & Accessories
           </h3>
-          <span class="small text-secondary">Individual model fitting pricing</span>
+          <span class="small text-secondary">Genuine Dealership Accessories</span>
         </div>
         <div class="row g-2 g-md-3" id="accessories-grid"></div>
       </div>
@@ -591,7 +712,7 @@
           <h3 class="h4 font-racing text-white mb-0" style="color:var(--yamaha-cyan);">
             <i class="bi bi-shield-check me-2"></i>Yamaha Shield Insurance
           </h3>
-          <span class="small text-secondary">Protection Packages</span>
+          <span class="small text-secondary">Official Protection Plans</span>
         </div>
         <div class="row g-2 g-md-3" id="insurance-grid"></div>
       </div>
@@ -604,14 +725,14 @@
             <div class="display-6 font-racing fw-bold" style="color:var(--yamaha-cyan);" id="grand-total-display">₹ 0</div>
           </div>
           <button class="btn btn-primary font-racing px-4 px-md-5 py-3 fs-5" onclick="openContactModal()">
-            Proceed To Book / Contact AS
+            Proceed To Book / Contact Us
           </button>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Permanent Mobile Bottom App Bar -->
+  <!-- Mobile Bottom Bar -->
   <nav class="mobile-bottom-bar" aria-label="Mobile Bottom App Bar">
     <button class="mobile-bar-btn" data-bs-toggle="offcanvas" data-bs-target="#mobileModelsDrawer" title="Select Model">
       <i class="bi bi-grid-fill"></i>
@@ -619,22 +740,22 @@
     <button class="mobile-bar-btn active" id="btn-mobile-photo" onclick="setMediaMode('photo')" title="Photos">
       <i class="bi bi-image"></i>
     </button>
-    <button class="mobile-bar-btn" id="btn-mobile-video" onclick="setMediaMode('video')" title="Walkaround Video">
+    <button class="mobile-bar-btn" id="btn-mobile-360" onclick="setMediaMode('360')" title="360 View">
+      <i class="bi bi-arrow-repeat"></i>
+    </button>
+    <button class="mobile-bar-btn" id="btn-mobile-video" onclick="setMediaMode('video')" title="Video">
       <i class="bi bi-play-circle"></i>
     </button>
-    <a href="#specs-section" class="mobile-bar-btn" title="Specifications">
+    <a href="#specs-section" class="mobile-bar-btn" title="Specs">
       <i class="bi bi-speedometer2"></i>
     </a>
-    <a href="#extrafitting-section" class="mobile-bar-btn" title="Accessories">
-      <i class="bi bi-gear-wide"></i>
-    </a>
-    <button class="mobile-bar-btn cta-btn" onclick="openContactModal()" title="Book / Contact">
+    <button class="mobile-bar-btn cta-btn" onclick="openContactModal()" title="Book">
       <i class="bi bi-chat-dots-fill"></i>
     </button>
   </nav>
 
   <!-- Mobile Models Drawer -->
-  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="mobileModelsDrawer" style="height:70vh; border-radius:24px 24px 0 0;">
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="mobileModelsDrawer" style="height:76vh; border-radius:24px 24px 0 0;">
     <div class="offcanvas-header border-bottom border-secondary py-3">
       <h5 class="offcanvas-title font-racing text-info fw-bold mb-0">Select Yamaha Model</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
@@ -655,7 +776,7 @@
         <div class="modal-header border-secondary">
           <div class="d-flex align-items-center gap-2">
             <i class="bi bi-envelope-paper-fill fs-4" style="color:var(--yamaha-cyan);"></i>
-            <h5 class="modal-title font-racing fw-bold mb-0">Book Test Ride / Contact AS</h5>
+            <h5 class="modal-title font-racing fw-bold mb-0">Book Test Ride / Contact Us</h5>
           </div>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
@@ -713,116 +834,188 @@
     </div>
   </div>
 
-  <!-- Bootstrap 5 Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxyiusay2BIsDcoxTBHI6nRmYPK6j7Cofh_sm0yWqYZYinqhJiGRNpX_4Xtky07hZ-f/exec";
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6AXfxXV2lFBEiD6O88TvUpTEYwjbWAObXQzijUFKGKc9LpKXCoht0svqP5x0hek2W/exec";
 
-    // Showroom Catalog Database with Multi-Color Images and Walkaround Videos[cite: 1]
+    // Showroom Catalog Database with Direct 40-Frame Sequences from your links
     let database = [
       {
-        id: "r15-v4",
-        name: "R15 V4",
+        id: "r15m",
+        name: "YAMAHA R15M",
+        subtitle: "RACE TO THE NEXT LEVEL",
+        bluetooth: true,
         offer: "₹5,000 Exchange Bonus",
         videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        prices: { basic: 182500, middle: 187500, top: 197500 },
-        specs: {
-          displacement: "155 cc", maxPower: "18.1 bhp @ 10000 rpm", maxTorque: "14.2 Nm @ 7500 rpm",
-          topSpeed: "125 kmph", mileage: "46 kmpl", transmission: "6 Speed Manual",
-          transmissionType: "Chain Drive", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper",
-          ridingRange: "460 km", ridingModes: "Track & Street", engineType: "1 Cylinder LC4V VVA",
-          boreStroke: "58 mm x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1 Per Cyl",
-          battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol"
-        },
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15m/360/40.webp",
+        prices: { basic: 198000, middle: 204000, top: 209000 },
+        specs: { displacement: "155 cc", maxPower: "18.4 bhp @ 10000 rpm", maxTorque: "14.2 Nm", topSpeed: "128 kmph", mileage: "45 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "460 km", ridingModes: "Track & Street", engineType: "Liquid Cooled 4V VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
         colors: [
-          { 
-            name: "Racing Blue", 
-            hex: "#0050FF", 
-            images: [
-              "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80",
-              "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80"
-            ] 
-          },
-          { 
-            name: "Dark Knight", 
-            hex: "#1C1F26", 
-            images: [
-              "https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1000&q=80",
-              "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80"
-            ] 
-          }
+          { name: "Metallic Grey", hex: "#8A8D8F", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15m/360/40.webp"] }
         ],
-        accessories: [
-          { id: "acc-guard", name: "Engine Crash Guard", price: 2450, icon: "bi-shield" },
-          { id: "acc-seat", name: "Comfort Tourer Seat", price: 1650, icon: "bi-layers" }
-        ],
-        insurance: [
-          { id: "ins-1yr", name: "1 Year Comprehensive + 4 Years 3rd Party", price: 8200 },
-          { id: "ins-zero-dep", name: "Zero Depreciation Comprehensive Pack", price: 11400 }
-        ]
+        accessories: [{ id: "acc-guard", name: "Engine Crash Guard", price: 2450, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Zero Dep Pack", price: 11400 }]
       },
       {
-        id: "mt-15-v2",
-        name: "MT 15 Version 2.0",
+        id: "r15v4",
+        name: "YAMAHA R15 V4",
+        subtitle: "RACE TO THE NEXT LEVEL",
+        bluetooth: true,
+        offer: "₹5,000 Exchange Bonus",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15v4/360/34.webp",
+        prices: { basic: 182500, middle: 187500, top: 197500 },
+        specs: { displacement: "155 cc", maxPower: "18.1 bhp @ 10000 rpm", maxTorque: "14.2 Nm", topSpeed: "125 kmph", mileage: "46 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "460 km", ridingModes: "Track & Street", engineType: "Liquid Cooled 4V VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        colors: [
+          { name: "Racing Blue", hex: "#0050FF", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15v4/360/34.webp"] }
+        ],
+        accessories: [{ id: "acc-guard", name: "Engine Crash Guard", price: 2450, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Zero Dep Pack", price: 11400 }]
+      },
+      {
+        id: "r15s",
+        name: "YAMAHA R15S",
+        subtitle: "WE R RACING PERFECTION",
+        bluetooth: false,
+        offer: "₹4,000 Student Discount",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15s/360/36.webp",
+        prices: { basic: 165000, middle: 168000, top: 171000 },
+        specs: { displacement: "155 cc", maxPower: "18.3 bhp", maxTorque: "14.1 Nm", topSpeed: "125 kmph", mileage: "46 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "460 km", ridingModes: "No", engineType: "Liquid Cooled VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        colors: [
+          { name: "Racing Black", hex: "#1A1A1A", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15s/360/36.webp"] }
+        ],
+        accessories: [{ id: "acc-slider", name: "Frame Sliders", price: 2100, icon: "bi-triangle" }],
+        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7600 }]
+      },
+      {
+        id: "mt15v2",
+        name: "YAMAHA MT 15 V2",
+        subtitle: "THE DARK SIDE OF JAPAN",
+        bluetooth: true,
         offer: "Free Certified Riding Helmet",
         videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/mt_series/mt15v2/360/36.webp",
         prices: { basic: 168000, middle: 173000, top: 179000 },
-        specs: {
-          displacement: "155 cc", maxPower: "18.1 bhp", maxTorque: "14.1 Nm",
-          topSpeed: "122 kmph", mileage: "48 kmpl", transmission: "6 Speed",
-          transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper",
-          ridingRange: "480 km", ridingModes: "No", engineType: "Liquid Cooled SOHC",
-          boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1",
-          battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol"
-        },
+        specs: { displacement: "155 cc", maxPower: "18.1 bhp", maxTorque: "14.1 Nm", topSpeed: "122 kmph", mileage: "48 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "480 km", ridingModes: "No", engineType: "Liquid Cooled SOHC", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
         colors: [
-          { 
-            name: "Cyan Storm", 
-            hex: "#00F0FF", 
-            images: [
-              "https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1000&q=80",
-              "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"
-            ] 
-          },
-          { 
-            name: "Metallic Black", 
-            hex: "#111111", 
-            images: [
-              "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80"
-            ] 
-          }
+          { name: "Cyan Storm", hex: "#00F0FF", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/mt_series/mt15v2/360/36.webp"] }
         ],
         accessories: [{ id: "acc-tank", name: "MT Tank Pad", price: 650, icon: "bi-slash-circle" }],
         insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7800 }]
       },
-      { 
-        id: "xsr-155", 
-        name: "XSR 155", 
+      {
+        id: "xsr155", 
+        name: "YAMAHA XSR 155", 
+        subtitle: "BORN TO BE LEGEND",
+        bluetooth: true,
         offer: "Zero Down Payment", 
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ", 
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/x_series_all/xsr/360/37.webp",
         prices: { basic: 159000, middle: 164000, top: 169000 }, 
         specs: { displacement: "155 cc", maxPower: "19.0 bhp", maxTorque: "14.7 Nm", topSpeed: "120 kmph", mileage: "48 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "480 km", ridingModes: "No", engineType: "Liquid Cooled VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, 
         colors: [
-          { name: "Heritage Silver", hex: "#A8A9AD", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80"] },
-          { name: "Metallic Brown", hex: "#5C3A21", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] }
+          { name: "Heritage Silver", hex: "#A8A9AD", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/x_series_all/xsr/360/37.webp"] }
         ], 
         accessories: [{ id: "acc-visor", name: "Retro Visor", price: 1400, icon: "bi-wind" }], 
         insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7400 }] 
       },
-      { 
-        id: "aerox-155", 
-        name: "Aerox 155", 
-        offer: "Complimentary Riding Jacket", 
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ", 
-        prices: { basic: 147000, middle: 151000, top: 153000 }, 
-        specs: { displacement: "155 cc", maxPower: "14.8 bhp", maxTorque: "13.9 Nm", topSpeed: "120 kmph", mileage: "44 kmpl", transmission: "Automatic", transmissionType: "Belt", gearShiftPattern: "Auto", clutch: "Centrifugal", ridingRange: "240 km", ridingModes: "No", engineType: "Liquid Cooled 4V", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 6.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, 
+      {
+        id: "fzs-fi-hybrid",
+        name: "YAMAHA FZ-S HYBRID",
+        subtitle: "RACE TO THE NEXT LEVEL",
+        bluetooth: true,
+        offer: "₹5,000 Exchange Bonus",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-hybrid/360-hybrid/36.webp",
+        prices: { basic: 129000, middle: 132000, top: 135000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi TCS", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
         colors: [
-          { name: "Racing Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] },
-          { name: "Grey Vermillion", hex: "#FF4500", images: ["https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1000&q=80"] }
-        ], 
-        accessories: [{ id: "acc-knuckle", name: "Knuckle Guards", price: 1850, icon: "bi-hand-index-thumb" }], 
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6900 }] 
+          { name: "Metallic Grey", hex: "#8A8D8F", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-hybrid/360-hybrid/36.webp"] }
+        ],
+        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6200 }]
+      },
+      {
+        id: "fz-rave",
+        name: "YAMAHA FZ-RAVE",
+        subtitle: "RIDE THE PULSE",
+        bluetooth: false,
+        offer: "₹3,000 Cashback",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-rave/360/36.webp",
+        prices: { basic: 119000, middle: 123000, top: 127000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "47 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "No", engineType: "Air Cooled Fi", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        colors: [
+          { name: "Matte Blue", hex: "#0044EE", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-rave/360/36.webp"] }
+        ],
+        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 5800 }]
+      },
+      {
+        id: "fz-fi",
+        name: "YAMAHA FZ-FI",
+        subtitle: "LORD OF THE STREETS",
+        bluetooth: false,
+        offer: "Free 1 Year Service",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-fi/360/36.webp",
+        prices: { basic: 116000, middle: 119000, top: 122000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "48 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "560 km", ridingModes: "No", engineType: "Air Cooled Fi", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        colors: [
+          { name: "Racing Black", hex: "#111111", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-fi/360/36.webp"] }
+        ],
+        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 5600 }]
+      },
+      {
+        id: "fzs-fi-v4",
+        name: "YAMAHA FZS-FI V4",
+        subtitle: "PERFORMANCE REDEFINED",
+        bluetooth: true,
+        offer: "₹5,000 Exchange Bonus",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4/360/37.webp",
+        prices: { basic: 129000, middle: 132000, top: 135000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi TCS", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        colors: [
+          { name: "Metallic Red", hex: "#E60012", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4/360/37.webp"] }
+        ],
+        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6200 }]
+      },
+      {
+        id: "fzs-fi-v4-std",
+        name: "YAMAHA FZS-FI V4 STD",
+        subtitle: "STREET INTELLIGENCE",
+        bluetooth: true,
+        offer: "Free Accessories Kit",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4-std/360/32.webp",
+        prices: { basic: 128000, middle: 131000, top: 134000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi TCS", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        colors: [
+          { name: "Matte Black", hex: "#1C1F26", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4-std/360/32.webp"] }
+        ],
+        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6100 }]
+      },
+      {
+        id: "fzx-hybrid",
+        name: "YAMAHA FZ-X HYBRID",
+        subtitle: "CROSSOVER TO ADVENTURE",
+        bluetooth: true,
+        offer: "₹3,500 Cash Discount",
+        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
+        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzx-hybrid/360/36.webp",
+        prices: { basic: 137000, middle: 140000, top: 143000 },
+        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "47 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "540 km", ridingModes: "TCS", engineType: "Neo-Retro Crossover", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        colors: [
+          { name: "Copper Metallic", hex: "#B87333", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzx-hybrid/360/36.webp"] }
+        ],
+        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6500 }]
       }
     ];
 
@@ -831,9 +1024,17 @@
     let currentColorIdx = 0;
     let currentImgIdx = 0;
     let currentSearchTerm = "";
-    let activeMediaMode = 'photo'; // 'photo' or 'video'
+    let activeMediaMode = 'photo'; // 'photo', 'video', or '360'
     let selectedAccessories = new Set();
     let selectedInsuranceId = null;
+
+    // 40-Frame 360 Variables
+    const TOTAL_360_FRAMES = 40;
+    let current360Index = 1;
+    let isDragging360 = false;
+    let startX360 = 0;
+    let isAutoSpinning360 = false;
+    let autoSpinInterval = null;
 
     window.addEventListener("DOMContentLoaded", async () => {
       loadStoredLocal();
@@ -841,7 +1042,6 @@
         await fetchLiveFromGoogleSheet();
       }
 
-      // Read query params (e.g. ?model=r15-v4)
       const urlParams = new URLSearchParams(window.location.search);
       const targetModel = urlParams.get("model");
       if (targetModel) {
@@ -904,19 +1104,25 @@
       document.getElementById("models-total-badge").innerText = `${filtered.length} Models`;
 
       filtered.forEach(({ bike, originalIndex }) => {
-        const div = document.createElement("div");
-        div.className = `model-sidebar-item p-3 ${originalIndex === currentModelIdx ? 'active' : ''}`;
-        div.onclick = () => selectModel(originalIndex);
-        div.innerHTML = `
-          <div class="d-flex justify-content-between align-items-center">
-            <div>
-              <div class="fw-bold font-racing fs-5">${bike.name}</div>
-              <div class="small" style="color:var(--yamaha-cyan);">₹ ${(bike.prices[currentVariant] || bike.prices.top).toLocaleString('en-IN')}</div>
-            </div>
-            <i class="bi bi-chevron-right small text-secondary"></i>
+        const primaryColor = (bike.colors && bike.colors[0]) ? bike.colors[0] : null;
+        const imgUrl = (primaryColor && primaryColor.images && primaryColor.images[0]) ? primaryColor.images[0] : (bike.view360Url || "https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png");
+        const isBluetooth = bike.bluetooth !== false;
+
+        const card = document.createElement("div");
+        card.className = `model-compact-card ${originalIndex === currentModelIdx ? 'active' : ''}`;
+        card.onclick = () => selectModel(originalIndex);
+        card.innerHTML = `
+          <div class="model-card-thumb-wrap">
+            <img src="${imgUrl}" alt="${bike.name}" class="model-card-thumb-img" onerror="this.src='https://placehold.co/400x250/0E1626/00F0FF?text=Yamaha+Bike'">
           </div>
+          <div class="model-card-title">
+            ${bike.name}
+            ${isBluetooth ? '<i class="bi bi-bluetooth text-primary" style="font-size:0.95rem;"></i>' : ''}
+          </div>
+          <div class="model-card-tagline">${bike.subtitle || 'RACE TO THE NEXT LEVEL'}</div>
+          <button class="btn-find-more" onclick="event.stopPropagation(); selectModel(${originalIndex});">Find More</button>
         `;
-        container.appendChild(div);
+        container.appendChild(card);
       });
     }
 
@@ -933,23 +1139,29 @@
         });
 
       filtered.forEach(({ bike, originalIndex }) => {
-        const div = document.createElement("div");
-        div.className = `model-sidebar-item p-3 mb-2 ${originalIndex === currentModelIdx ? 'active' : ''}`;
-        div.onclick = () => {
+        const primaryColor = (bike.colors && bike.colors[0]) ? bike.colors[0] : null;
+        const imgUrl = (primaryColor && primaryColor.images && primaryColor.images[0]) ? primaryColor.images[0] : (bike.view360Url || "https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png");
+        const isBluetooth = bike.bluetooth !== false;
+
+        const card = document.createElement("div");
+        card.className = `model-compact-card ${originalIndex === currentModelIdx ? 'active' : ''}`;
+        card.onclick = () => {
           selectModel(originalIndex);
           const drawer = bootstrap.Offcanvas.getInstance(document.getElementById('mobileModelsDrawer'));
           if (drawer) drawer.hide();
         };
-        div.innerHTML = `
-          <div class="d-flex justify-content-between align-items-center">
-            <div>
-              <div class="fw-bold font-racing fs-5 text-white">${bike.name}</div>
-              <div class="small" style="color:var(--yamaha-cyan);">₹ ${(bike.prices[currentVariant] || bike.prices.top).toLocaleString('en-IN')}</div>
-            </div>
-            <i class="bi bi-arrow-right-circle text-info fs-4"></i>
+        card.innerHTML = `
+          <div class="model-card-thumb-wrap">
+            <img src="${imgUrl}" alt="${bike.name}" class="model-card-thumb-img" onerror="this.src='https://placehold.co/400x250/0E1626/00F0FF?text=Yamaha+Bike'">
           </div>
+          <div class="model-card-title">
+            ${bike.name}
+            ${isBluetooth ? '<i class="bi bi-bluetooth text-primary"></i>' : ''}
+          </div>
+          <div class="model-card-tagline">${bike.subtitle || 'RACE TO THE NEXT LEVEL'}</div>
+          <button class="btn-find-more">Find More</button>
         `;
-        container.appendChild(div);
+        container.appendChild(card);
       });
     }
 
@@ -965,77 +1177,260 @@
       renderStage(idx);
     }
 
-    // Media Switcher: Photo vs Video
     function setMediaMode(mode) {
       activeMediaMode = mode;
+      
       const photoBtn = document.getElementById("btn-mobile-photo");
       const videoBtn = document.getElementById("btn-mobile-video");
+      const b360Btn = document.getElementById("btn-mobile-360");
       const videoChip = document.getElementById("video-chip-btn");
+      const chip360 = document.getElementById("chip-360-btn");
+      const turntableControls = document.getElementById("turntable-controls-wrap");
 
       if (photoBtn) photoBtn.classList.toggle("active", mode === 'photo');
       if (videoBtn) videoBtn.classList.toggle("active", mode === 'video');
+      if (b360Btn) b360Btn.classList.toggle("active", mode === '360');
       if (videoChip) videoChip.classList.toggle("active", mode === 'video');
+      if (chip360) chip360.classList.toggle("active", mode === '360');
 
       const photoBox = document.getElementById("photo-display-container");
       const videoBox = document.getElementById("video-display-container");
+      const box360 = document.getElementById("viewer-360-container");
+
+      photoBox.classList.add("d-none");
+      videoBox.classList.add("d-none");
+      box360.classList.add("d-none");
+      if (turntableControls) turntableControls.classList.add("d-none");
 
       if (mode === 'photo') {
         photoBox.classList.remove("d-none");
-        videoBox.classList.add("d-none");
         videoBox.innerHTML = "";
-      } else {
-        photoBox.classList.add("d-none");
+        box360.innerHTML = "";
+        stopUserAutoSpin360();
+      } else if (mode === 'video') {
         videoBox.classList.remove("d-none");
+        box360.innerHTML = "";
+        stopUserAutoSpin360();
         mountUniversalVideoPlayer();
+      } else if (mode === '360') {
+        box360.classList.remove("d-none");
+        videoBox.innerHTML = "";
+        mountAdaptive360Viewer();
       }
       renderThumbnailsFilmstrip();
     }
 
     function toggleVideoChip() {
-      if (activeMediaMode === 'video') {
-        setMediaMode('photo');
-      } else {
-        setMediaMode('video');
-      }
+      setMediaMode(activeMediaMode === 'video' ? 'photo' : 'video');
+    }
+
+    function toggle360Chip() {
+      setMediaMode(activeMediaMode === '360' ? 'photo' : '360');
     }
 
     // =========================================================================
-    // YOUTUBE & MP4 ENGINE (FIXED FOR ERROR 153)[cite: 4]
+    // DYNAMIC 40-FRAME 360 ENGINE: PARSES ANY LINK TO LOAD {1..40}.webp
     // =========================================================================
-    function mountUniversalVideoPlayer() {
+    function mountAdaptive360Viewer() {
       const bike = database[currentModelIdx];
-      const videoBox = document.getElementById("video-display-container");
-      videoBox.innerHTML = "";
+      const box360 = document.getElementById("viewer-360-container");
+      const turntableControls = document.getElementById("turntable-controls-wrap");
+      box360.innerHTML = "";
 
-      const rawUrl = (bike && bike.videoUrl) ? bike.videoUrl.trim() : "https://www.youtube.com/watch?v=og860ziXQOQ";
-      
-      // Match YouTube IDs safely from shorts, youtu.be, or watch links
-      const ytMatch = rawUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
-
-      if (ytMatch && ytMatch[1]) {
-        const videoId = ytMatch[1];
-        // Clean embed avoiding loop=1 playlist origin conflict causing Error 153[cite: 4]
-        videoBox.innerHTML = `
+      // Check if interactive iframe link (e.g., BikeDekho 360 view)
+      if (bike.view360Url && bike.view360Url.trim().length > 5 && (bike.view360Url.includes(".html") || bike.view360Url.includes("bikedekho"))) {
+        if (turntableControls) turntableControls.classList.add("d-none");
+        box360.innerHTML = `
           <iframe 
-            src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&controls=1&enablejsapi=1" 
-            title="${bike.name} Walkaround Video" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
+            src="${bike.view360Url.trim()}" 
+            title="${bike.name} 360 Degree View" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            class="w-100 h-100 border-0">
           </iframe>
         `;
-      } else {
-        // Direct MP4 / HTML5 stream or Base64
-        videoBox.innerHTML = `
-          <video autoplay muted loop playsinline controls class="w-100 h-100">
-            <source src="${rawUrl}">
-            Your browser does not support HTML5 video preview.
-          </video>
-        `;
+        return;
+      }
+
+      // 40-Frame Interactive Sequence
+      if (turntableControls) turntableControls.classList.remove("d-none");
+      box360.innerHTML = `
+        <div class="viewer-360-canvas-box" id="box-360-user-viewer">
+          <img src="" alt="Yamaha 360 View" class="bike-360-frame" id="img-360-user-frame" onerror="handle360FrameFallback(this)">
+          <div style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); pointer-events: none;">
+            <span class="badge bg-dark bg-opacity-75 border border-secondary text-info font-racing px-3 py-1">
+              <i class="bi bi-arrows-expand me-1"></i> Drag to Spin 360°
+            </span>
+          </div>
+          <div style="position: absolute; top: 15px; left: 20px;">
+            <span class="badge bg-dark border border-secondary text-white font-racing" id="frame-counter-user-badge">
+              Angle: 1 / 40 (0°)
+            </span>
+          </div>
+        </div>
+      `;
+      initUser360Controls();
+      setUser360Frame(1);
+    }
+
+    // Deconstructs any image URL to extract base path and dynamically inject frame numbers
+    function getSmart360Url(frameNum) {
+      const bike = database[currentModelIdx];
+      let raw = (bike && (bike.view360Url || bike.view360Base)) ? (bike.view360Url || bike.view360Base).trim() : "";
+
+      if (!raw || raw.length < 5) {
+        raw = "https://yamaha-r2.yamaha-motor-india.com/assets/images/360/grey/1.webp";
+      }
+
+      // Regex matches any trailing number with extension (e.g., /40.webp, /36.webp, /1.jpg)
+      const numMatch = raw.match(/^(.*\/)(\d+)\.(webp|png|jpg|jpeg)$/i);
+      if (numMatch) {
+        const basePath = numMatch[1];
+        const ext = numMatch[3];
+        return `${basePath}${frameNum}.${ext}`;
+      }
+
+      // If directory path ending with slash
+      if (raw.endsWith("/")) {
+        return `${raw}${frameNum}.webp`;
+      }
+
+      return `${raw}/${frameNum}.webp`;
+    }
+
+    function setUser360Frame(index) {
+      current360Index = ((parseInt(index) - 1 + TOTAL_360_FRAMES) % TOTAL_360_FRAMES) + 1;
+      const imgElement = document.getElementById("img-360-user-frame");
+      if (imgElement) {
+        imgElement.src = getSmart360Url(current360Index);
+      }
+      const slider = document.getElementById("user-slider-360");
+      if (slider) slider.value = current360Index;
+      
+      const degrees = Math.round(((current360Index - 1) / TOTAL_360_FRAMES) * 360);
+      const badge = document.getElementById("frame-counter-user-badge");
+      if (badge) badge.innerText = `Angle: ${current360Index} / ${TOTAL_360_FRAMES} (${degrees}°)`;
+    }
+
+    function handle360FrameFallback(img) {
+      const bike = database[currentModelIdx];
+      const activeColor = (bike.colors && bike.colors[currentColorIdx]) ? bike.colors[currentColorIdx] : bike.colors[0];
+      if (activeColor && activeColor.images && activeColor.images[0]) {
+        img.src = activeColor.images[0];
       }
     }
 
-    // Filter and update stage elements strictly according to selected color
+    function toggleUserAutoSpin360() {
+      if (isAutoSpinning360) stopUserAutoSpin360();
+      else startUserAutoSpin360();
+    }
+
+    function startUserAutoSpin360() {
+      isAutoSpinning360 = true;
+      const btn = document.getElementById("user-auto-spin-btn");
+      if (btn) {
+        btn.innerHTML = `<i class="bi bi-pause-circle-fill me-1"></i> Pause`;
+        btn.classList.add("active");
+      }
+      autoSpinInterval = setInterval(() => {
+        let nextFrame = current360Index >= TOTAL_360_FRAMES ? 1 : current360Index + 1;
+        setUser360Frame(nextFrame);
+      }, 70);
+    }
+
+    function stopUserAutoSpin360() {
+      isAutoSpinning360 = false;
+      if (autoSpinInterval) clearInterval(autoSpinInterval);
+      const btn = document.getElementById("user-auto-spin-btn");
+      if (btn) {
+        btn.innerHTML = `<i class="bi bi-play-circle-fill me-1"></i> Spin`;
+        btn.classList.remove("active");
+      }
+    }
+
+    function initUser360Controls() {
+      const box = document.getElementById("box-360-user-viewer");
+      if (!box) return;
+
+      box.addEventListener("mousedown", (e) => {
+        stopUserAutoSpin360();
+        isDragging360 = true;
+        startX360 = e.clientX;
+      });
+      window.addEventListener("mouseup", () => { isDragging360 = false; });
+      window.addEventListener("mousemove", (e) => {
+        if (!isDragging360) return;
+        const deltaX = e.clientX - startX360;
+        if (Math.abs(deltaX) > 8) {
+          const step = deltaX > 0 ? -1 : 1;
+          setUser360Frame(current360Index + step);
+          startX360 = e.clientX;
+        }
+      });
+
+      box.addEventListener("touchstart", (e) => {
+        stopUserAutoSpin360();
+        isDragging360 = true;
+        startX360 = e.touches[0].clientX;
+      }, { passive: true });
+      window.addEventListener("touchend", () => { isDragging360 = false; });
+      window.addEventListener("touchmove", (e) => {
+        if (!isDragging360) return;
+        const deltaX = e.touches[0].clientX - startX360;
+        if (Math.abs(deltaX) > 8) {
+          const step = deltaX > 0 ? -1 : 1;
+          setUser360Frame(current360Index + step);
+          startX360 = e.touches[0].clientX;
+        }
+      }, { passive: true });
+    }
+
+    // =========================================================================
+    // YOUTUBE VIDEO LOADER (ERROR 153 WORKAROUND)
+    // =========================================================================
+    function mountUniversalVideoPlayer() {
+  const bike = database[currentModelIdx];
+  const videoBox = document.getElementById("video-display-container");
+  videoBox.innerHTML = "";
+
+  const rawUrl = (bike && bike.videoUrl) ? bike.videoUrl.trim() : "https://www.youtube.com/watch?v=og860ziXQOQ";
+  const ytMatch = rawUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
+
+  if (ytMatch && ytMatch[1]) {
+    const videoId = ytMatch[1];
+    
+    // Check if running on local file:// protocol which triggers Error 153
+    const isLocalFile = window.location.protocol === 'file:';
+
+    videoBox.innerHTML = `
+      <div class="w-100 h-100 position-relative bg-black d-flex align-items-center justify-content-center">
+        <iframe 
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&controls=1&rel=0" 
+          title="${bike.name} Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          class="w-100 h-100 border-0"
+          allowfullscreen>
+        </iframe>
+        ${isLocalFile ? `
+          <div style="position: absolute; bottom: 12px; right: 12px; z-index: 10;">
+            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="btn btn-sm btn-danger font-racing">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Watch on YouTube
+            </a>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  } else {
+    // Direct MP4 / HTML5 stream
+    videoBox.innerHTML = `
+      <video autoplay muted loop playsinline controls class="w-100 h-100 object-fit-cover">
+        <source src="${rawUrl}">
+        Your browser does not support HTML5 video preview.
+      </video>
+    `;
+  }
+}
+
     function renderStage(idx) {
       const bike = database[idx];
       if (!bike) return;
@@ -1057,27 +1452,26 @@
         sw.title = c.name;
         sw.onclick = () => {
           currentColorIdx = ci;
-          currentImgIdx = 0; // Reset to 1st photo of this color
+          currentImgIdx = 0;
           setMediaMode('photo');
           renderStage(idx);
         };
         swatchBox.appendChild(sw);
       });
 
-      // Update Active Color Label
+      // Active Color Badge
       const activeColor = (bike.colors && bike.colors[currentColorIdx]) ? bike.colors[currentColorIdx] : (bike.colors ? bike.colors[0] : null);
       const colorBadge = document.getElementById("active-color-name-badge");
       if (colorBadge && activeColor) {
         colorBadge.innerText = activeColor.name;
       }
 
-      // Filtered Images for current color
+      // Filtered Images for active color
       const images = (activeColor && activeColor.images && activeColor.images.length > 0) ? activeColor.images : ["https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png"];
       document.getElementById("stage-main-image").src = images[currentImgIdx] || images[0];
 
-      if (activeMediaMode === 'video') {
-        mountUniversalVideoPlayer();
-      }
+      if (activeMediaMode === 'video') mountUniversalVideoPlayer();
+      else if (activeMediaMode === '360') mountAdaptive360Viewer();
 
       renderThumbnailsFilmstrip();
 
@@ -1120,7 +1514,7 @@
         specsBox.appendChild(col);
       });
 
-      // Extrafiting Accessories[cite: 1]
+      // Extrafiting Accessories
       const accBox = document.getElementById("accessories-grid");
       accBox.innerHTML = "";
       (bike.accessories || []).forEach(acc => {
@@ -1166,7 +1560,6 @@
       updateGrandTotal();
     }
 
-    // Mini Thumbnails filtered STRICTLY to active colorway[cite: 3]
     function renderThumbnailsFilmstrip() {
       const bike = database[currentModelIdx];
       const activeColor = (bike.colors && bike.colors[currentColorIdx]) ? bike.colors[currentColorIdx] : (bike.colors ? bike.colors[0] : null);
@@ -1185,11 +1578,11 @@
         thumbBox.appendChild(btn);
       });
 
-      // Update Video Button Highlight[cite: 3]
       const videoChip = document.getElementById("video-chip-btn");
-      if (videoChip) {
-        videoChip.classList.toggle("active", activeMediaMode === 'video');
-      }
+      if (videoChip) videoChip.classList.toggle("active", activeMediaMode === 'video');
+
+      const chip360 = document.getElementById("chip-360-btn");
+      if (chip360) chip360.classList.toggle("active", activeMediaMode === '360');
     }
 
     function switchVariant(variantKey, btn) {
