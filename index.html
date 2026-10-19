@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- Critical meta tag preventing YouTube embed Error 153 -->
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Yamaha Sai Motors | Official Flagship Portal & 360 Studio</title>
 
@@ -11,7 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Google Fonts: Montserrat Only -->
+  <!-- Montserrat Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
@@ -336,29 +335,33 @@
       margin-bottom: 0;
     }
 
-    /* Video Section */
-    .video-section {
+    /* =========================================================================
+       CINEMATIC FULL-WIDTH AUTOPLAY VIDEO STAGE (NO TEXT)
+       ========================================================================= */
+    .cinematic-video-section {
       background: var(--yamaha-surface-glass);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-top: 1px solid var(--border-glow);
       border-bottom: 1px solid var(--border-glow);
+      padding: 2.5rem 0;
     }
-    .video-responsive-box {
+    .cinematic-video-box {
       position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
       overflow: hidden;
-      border-radius: 16px;
       border: 1px solid var(--border-glow);
-      box-shadow: 0 10px 40px rgba(0, 68, 238, 0.45);
+      box-shadow: 0 14px 45px rgba(0, 68, 238, 0.5);
       background: #000;
     }
-    .video-responsive-box iframe,
-    .video-responsive-box video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+    .cinematic-video-box iframe,
+    .cinematic-video-box video {
+      width: 100%;
+      height: 100%;
       border: none;
       display: block;
     }
@@ -428,6 +431,8 @@
       .viewer-360-canvas-box { height: 320px; }
       .mode-card-img-wrap { height: 200px; }
       .mode-watermark-title { font-size: 2rem; }
+      .cinematic-video-section { padding: 1.25rem 0.75rem; }
+      .cinematic-video-box { border-radius: 12px; }
     }
   </style>
 </head>
@@ -438,8 +443,8 @@
        ========================================================================= -->
   <header class="main-header px-3 px-lg-4">
     <div class="container-fluid d-flex justify-content-between align-items-center">
-      <a href="home.html" class="text-decoration-none d-flex align-items-center gap-2 gap-md-3">
-        <img src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png" 
+      <a href="index.html" class="text-decoration-none d-flex align-items-center gap-2 gap-md-3">
+        <img src="https://www.citypng.com/public/uploads/preview/yamaha-white-sign-symbol-logo-icon-png-701751694969799modrhvqgjt.png?v=2026100920" 
              alt="Yamaha" class="brand-logo-symbol"
              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_Motor_logo.svg'">
         <div>
@@ -450,13 +455,7 @@
 
       <!-- Desktop Links -->
       <div class="d-none d-lg-flex gap-2 align-items-center">
-        <a href="#studio-360-section" class="btn btn-outline-info btn-sm font-racing px-3">
-          <i class="bi bi-arrow-repeat me-1"></i> 360° Studio
-        </a>
-        <a href="#models-scroll-section" class="btn btn-outline-light btn-sm font-racing px-3">Fleet Lineup</a>
-        <a href="#engineering-features" class="btn btn-outline-light btn-sm font-racing px-3">Design Highlights</a>
-        <a href="#riding-modes" class="btn btn-outline-light btn-sm font-racing px-3">Riding Modes</a>
-        <a href="#video-section" class="btn btn-outline-light btn-sm font-racing px-3">Walkaround</a>
+        
         <a href="user.html" class="btn btn-primary btn-sm font-racing px-3">
           <i class="bi bi-box-arrow-up-right me-1"></i> Open Showroom
         </a>
@@ -488,8 +487,8 @@
       <a href="#riding-modes" class="btn btn-outline-light font-racing text-start py-2" data-bs-dismiss="offcanvas">
         <i class="bi bi-speedometer2 me-2 text-primary"></i> 3 Riding Modes
       </a>
-      <a href="#video-section" class="btn btn-outline-light font-racing text-start py-2" data-bs-dismiss="offcanvas">
-        <i class="bi bi-play-circle-fill me-2 text-danger"></i> Walkaround Video
+      <a href="#video-stage" class="btn btn-outline-light font-racing text-start py-2" data-bs-dismiss="offcanvas">
+        <i class="bi bi-play-circle-fill me-2 text-danger"></i> Video
       </a>
       <hr class="border-secondary my-1">
       <a href="user.html" class="btn btn-primary font-racing py-3 fs-6">
@@ -503,7 +502,7 @@
        ========================================================================= -->
   <section class="hero-carousel-section">
     <!-- Slide 1: R15 V4 -->
-    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80');">
+    <div class="hero-slide active" style="background-image: url('https://imgd.aeplcdn.com/1056x594/n/objjmlb_2012772.jpg?q=80');">
       <div class="hero-overlay"></div>
       <div class="container px-4 px-lg-5">
         <div class="hero-content">
@@ -514,16 +513,14 @@
             <a href="user.html?model=r15-v4" class="btn btn-primary font-racing px-4 py-2 fs-5">
               <i class="bi bi-compass me-1"></i> Explode Bike Model
             </a>
-            <a href="#studio-360-section" class="btn btn-outline-info font-racing px-4 py-2 fs-5">
-              <i class="bi bi-arrow-repeat me-1"></i> 360° Studio
-            </a>
+            
           </div>
         </div>
       </div>
     </div>
 
     <!-- Slide 2: XSR 155 -->
-    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80');">
+    <div class="hero-slide" style="background-image: url('https://d1uzk9o9cg136f.cloudfront.net/f/16782548/rc/2026/03/24/2fe3e57c4e7483426ec5584f284e5d8cdef23b79.jpg');">
       <div class="hero-overlay"></div>
       <div class="container px-4 px-lg-5">
         <div class="hero-content">
@@ -534,8 +531,7 @@
             <a href="user.html?model=xsr-155" class="btn btn-primary font-racing px-4 py-2 fs-5">
               <i class="bi bi-compass me-1"></i> Explode Bike Model
             </a>
-            <a href="#video-section" class="btn btn-outline-light font-racing px-4 py-2 fs-5">Watch Walkaround</a>
-          </div>
+           </div>
         </div>
       </div>
     </div>
@@ -552,8 +548,7 @@
             <a href="user.html?model=mt-15-v2" class="btn btn-primary font-racing px-4 py-2 fs-5">
               <i class="bi bi-compass me-1"></i> Explode Bike Model
             </a>
-            <a href="#models-scroll-section" class="btn btn-outline-light font-racing px-4 py-2 fs-5">View Lineup</a>
-          </div>
+            </div>
         </div>
       </div>
     </div>
@@ -655,7 +650,7 @@
   </section>
 
   <!-- =========================================================================
-       5. DESIGN & ENGINEERING FEATURES GRID (Design from Image 1)
+       5. DESIGN & ENGINEERING FEATURES GRID
        ========================================================================= -->
   <section class="py-5 px-3 px-lg-5" id="engineering-features">
     <div class="container">
@@ -670,7 +665,7 @@
         <!-- 1: 204 cc Liquid-Cooled Engine -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="feature-grid-box">
-            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=700&q=80" alt="Engine">
+            <img src="https://media.zigcdn.com/media/model/2026/Aug/yamaha-r15v4-right-side-view.jpg" alt="Engine">
             <div class="feature-label-banner">
               <div class="feature-title-text">204 cc Liquid-Cooled Engine</div>
             </div>
@@ -680,7 +675,7 @@
         <!-- 2: Steel Tube Diamond Frame -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="feature-grid-box">
-            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=700&q=80" alt="Diamond Frame">
+            <img src="https://media.zigcdn.com/media/content/2019/Aug/yamaha-xsr250.jpg" alt="Diamond Frame">
             <div class="feature-label-banner">
               <div class="feature-title-text">Steel Tube Diamond Frame</div>
             </div>
@@ -690,7 +685,7 @@
         <!-- 3: Tuned Induction Sound -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="feature-grid-box">
-            <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=700&q=80" alt="Exhaust">
+            <img src="https://cdn.bikedekho.com/processedimages/yamaha/yamaha-rx-100/source/yamaha-rx-1006981ed6f77ba0.jpg" alt="Exhaust">
             <div class="feature-label-banner">
               <div class="feature-title-text">Tuned Induction Sound</div>
             </div>
@@ -700,7 +695,7 @@
         <!-- 4: Up and Down Quick Shifter -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="feature-grid-box">
-            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="Quick Shifter">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479395249/QP/RW/GY/4057748/9k-1000x1000.jpg" alt="Quick Shifter">
             <div class="feature-label-banner">
               <div class="feature-title-text">Up and Down Quick Shifter - Segment First</div>
             </div>
@@ -710,7 +705,7 @@
         <!-- 5: USD Front Forks -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="feature-grid-box">
-            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=700&q=80" alt="USD Front Forks">
+            <img src="https://www.motorbeam.com/wp-content/uploads/2013-yamaha-yzf-r250.jpg" alt="USD Front Forks">
             <div class="feature-label-banner">
               <div class="feature-title-text">USD Front Forks</div>
             </div>
@@ -734,7 +729,7 @@
   </section>
 
   <!-- =========================================================================
-       6. 3 RIDING MODES SECTION (Design from Image 2)
+       6. 3 RIDING MODES SECTION
        ========================================================================= -->
   <section class="py-5 px-3 px-lg-5" id="riding-modes" style="background: rgba(14, 22, 38, 0.45);">
     <div class="container">
@@ -749,7 +744,7 @@
         <div class="col-12 col-lg-4">
           <div class="mode-card">
             <div class="mode-card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80" alt="Street Mode" class="mode-bg-img">
+              <img src="https://5.imimg.com/data5/SELLER/Default/2024/1/375919601/IE/IE/WP/101065295/yamaha-fzx-blue.jpg" alt="Street Mode" class="mode-bg-img">
               <div class="mode-watermark-title">STREET</div>
               <div class="mode-hud-overlay">
                 <span class="badge bg-dark border border-secondary text-info font-racing px-2 py-1">
@@ -771,7 +766,7 @@
         <div class="col-12 col-lg-4">
           <div class="mode-card">
             <div class="mode-card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80" alt="Sport Mode" class="mode-bg-img">
+              <img src="https://i.pinimg.com/736x/dd/b4/85/ddb48584edaf598c3b6bfcebc6779a75.jpg" alt="Sport Mode" class="mode-bg-img">
               <div class="mode-watermark-title">SPORT</div>
               <div class="mode-hud-overlay">
                 <span class="badge bg-dark border border-secondary text-danger font-racing px-2 py-1">
@@ -793,7 +788,7 @@
         <div class="col-12 col-lg-4">
           <div class="mode-card">
             <div class="mode-card-img-wrap">
-              <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80" alt="Rain Mode" class="mode-bg-img">
+              <img src="https://media.zigcdn.com/media/model/2021/Jul/right-side-view-359863896_930x620.jpg" alt="Rain Mode" class="mode-bg-img">
               <div class="mode-watermark-title">RAIN</div>
               <div class="mode-hud-overlay">
                 <span class="badge bg-dark border border-secondary text-warning font-racing px-2 py-1">
@@ -815,41 +810,12 @@
   </section>
 
   <!-- =========================================================================
-       7. WALKAROUND VIDEO SECTION (YOUTUBE EMBED WITH ERROR 153 FIX)
+       7. STANDALONE CINEMATIC AUTOPLAY VIDEO (ONLY VIDEO - NO TEXT)
        ========================================================================= -->
-  <section class="video-section py-5 px-3 px-lg-5" id="video-section">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-5">
-          <span class="badge bg-danger font-racing px-3 py-1 mb-2">Featured Walkaround</span>
-          <h2 class="display-6 font-racing fw-bold text-white mb-3" id="showcase-video-title">Official Walkaround & Review</h2>
-          <p class="text-secondary mb-3" id="showcase-video-desc">
-            Explore aggressive styling nuances, exhaust tone, chassis ergonomics, switchgear details, and metallic livery highlights.
-          </p>
-          <div class="p-3 mb-4 rounded border border-secondary" style="background:var(--yamaha-card);">
-            <div class="d-flex align-items-center gap-3">
-              <i class="bi bi-play-circle-fill text-danger fs-3"></i>
-              <div>
-                <div class="fw-bold text-white font-racing">Universal Video Playback</div>
-                <div class="small text-secondary">Plays YouTube, MP4, and direct stream links. Configurable via Admin Console!</div>
-              </div>
-            </div>
-          </div>
-          <div class="d-flex gap-3 flex-wrap">
-            <a href="user.html" class="btn btn-primary font-racing px-4 py-2 fs-5">
-              <i class="bi bi-calendar-check me-2"></i>Schedule Test Ride
-            </a>
-            <a href="admin.html" class="btn btn-outline-secondary font-racing px-3 py-2">
-              <i class="bi bi-gear me-1"></i> Admin Console
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-7">
-          <div class="video-responsive-box" id="universal-video-container">
-            <!-- Injected by JavaScript parser -->
-          </div>
-        </div>
+  <section class="cinematic-video-section" id="video-stage">
+    <div class="container-fluid px-2 px-md-4">
+      <div class="cinematic-video-box" id="universal-video-container">
+        <!-- Standalone video loaded and autoplays automatically -->
       </div>
     </div>
   </section>
@@ -860,7 +826,7 @@
   <footer class="py-4 px-3 px-lg-5 border-top border-secondary" style="background:var(--yamaha-surface);">
     <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
       <div class="d-flex align-items-center gap-2">
-        <img src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png" 
+        <img src="https://www.citypng.com/public/uploads/preview/yamaha-white-sign-symbol-logo-icon-png-701751694969799modrhvqgjt.png?v=2026100920" 
              alt="Yamaha" style="height:32px;"
              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_Motor_logo.svg'">
         <span class="font-racing fw-bold text-white">Yamaha Sai Motors</span>
@@ -868,7 +834,7 @@
       </div>
       <div class="d-flex gap-3">
         <a href="user.html" class="text-info text-decoration-none font-racing">Showroom Portal</a>
-        <a href="admin.html" class="text-secondary text-decoration-none font-racing">Admin Console</a>
+        <!-- <a href="admin.html" class="text-secondary text-decoration-none font-racing">Admin Console</a> -->
       </div>
     </div>
   </footer>
@@ -878,11 +844,11 @@
        ========================================================================= -->
   <div class="fab-container" id="fab-container">
     <div class="fab-menu">
-      <a href="https://wa.me/919876543210?text=Hello%20Yamaha%20Sai%20Motors,%20I%20am%20inquiring%20from%20your%20website." 
+      <a href="https://wa.me/917997739198?text=Hello%20Yamaha%20Sai%20Motors,%20I%20am%20inquiring%20from%20your%20website." 
          target="_blank" class="fab-btn-action whatsapp">
-        <i class="bi bi-whatsapp"></i> WhatsApp Us
+        <i class="bi bi-whatsapp"></i> WhatsApp
       </a>
-      <a href="tel:+919876543210" class="fab-btn-action call">
+      <a href="tel:+917997739198" class="fab-btn-action call">
         <i class="bi bi-telephone-fill"></i> Call Showroom
       </a>
     </div>
@@ -963,8 +929,7 @@
       }
     ];
 
-    let showcaseVideoUrl = localStorage.getItem("yamaha_showcase_video_url") || "https://www.youtube.com/watch?v=h9-HUUNp2lI";
-    let showcaseVideoTitle = localStorage.getItem("yamaha_showcase_video_title") || "Yamaha R15 V4 & R15M Official Video";
+    let showcaseVideoUrl = localStorage.getItem("yamaha_showcase_video_url") || "https://www.youtube.com/watch?v=OTOBP7kAiuA";
 
     // =========================================================================
     // 40-FRAME 360 DEGREE ENGINE
@@ -1046,7 +1011,6 @@
       const box = document.getElementById("box-360-viewer");
       if (!box) return;
 
-      // Mouse Listeners
       box.addEventListener("mousedown", (e) => {
         stopAutoSpin360();
         isDragging360 = true;
@@ -1063,7 +1027,6 @@
         }
       });
 
-      // Touch Listeners
       box.addEventListener("touchstart", (e) => {
         stopAutoSpin360();
         isDragging360 = true;
@@ -1082,43 +1045,41 @@
     }
 
     // =========================================================================
-    // YOUTUBE VIDEO PARSER (NO ERROR 153)
+    // STANDALONE AUTOPLAY VIDEO ENGINE (NO TEXT)
     // =========================================================================
-    function setupUniversalVideoPlayer(url) {
+    function setupCinematicAutoplayVideo(raw) {
       const container = document.getElementById("universal-video-container");
+      if (!container) return;
       container.innerHTML = "";
-      document.getElementById("showcase-video-title").innerText = showcaseVideoTitle;
 
-      if (!url) {
-        container.innerHTML = `<div class="p-5 text-center text-secondary">No video configured. Add video URL in Admin Console.</div>`;
-        return;
+      let targetUrl = raw ? raw.trim() : "https://www.youtube.com/watch?v=OTOBP7kAiuA";
+
+      // If full iframe is provided, extract src
+      if (targetUrl.includes("<iframe") && targetUrl.includes("src=")) {
+        const srcMatch = targetUrl.match(/src=["']([^"']+)["']/i);
+        if (srcMatch && srcMatch[1]) targetUrl = srcMatch[1];
       }
 
-      const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
+      // Check YouTube pattern
+      const ytMatch = targetUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
 
       if (ytMatch && ytMatch[1]) {
         const videoId = ytMatch[1];
+        // autoplay=1 and mute=1 enables reliable modern browser autoplay
         container.innerHTML = `
-          <div class="w-100 h-100 position-relative">
-            <iframe 
-              src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&controls=1&enablejsapi=1" 
-              title="${showcaseVideoTitle}"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin"
-              class="w-100 h-100 border-0"
-              allowfullscreen>
-            </iframe>
-            <div style="position: absolute; top: 12px; right: 12px; z-index: 10;">
-              <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="btn btn-sm btn-dark bg-opacity-75 text-white font-racing border border-secondary">
-                <i class="bi bi-box-arrow-up-right me-1"></i> Watch on YouTube
-              </a>
-            </div>
-          </div>
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&playsinline=1&controls=1&enablejsapi=1" 
+            title="Yamaha Official Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
         `;
       } else {
+        // Direct HTML5 MP4 stream
         container.innerHTML = `
           <video autoplay muted loop playsinline controls class="w-100 h-100 object-fit-cover">
-            <source src="${url}">
+            <source src="${targetUrl}">
             Your browser does not support HTML5 video streaming.
           </video>
         `;
@@ -1136,7 +1097,7 @@
         await fetchLiveFromGoogleSheet();
       }
       renderScrollBikes();
-      setupUniversalVideoPlayer(showcaseVideoUrl);
+      setupCinematicAutoplayVideo(showcaseVideoUrl);
       startHeroTimer();
     });
 
@@ -1157,8 +1118,7 @@
         }
         if (json.video && json.video.url) {
           showcaseVideoUrl = json.video.url;
-          showcaseVideoTitle = json.video.title || showcaseVideoTitle;
-          setupUniversalVideoPlayer(showcaseVideoUrl);
+          setupCinematicAutoplayVideo(showcaseVideoUrl);
         }
       } catch (err) {
         console.warn("Using cached showroom database:", err);
