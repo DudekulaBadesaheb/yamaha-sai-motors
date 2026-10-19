@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
-
+<link rel="icon" type="image" href="https://www.citypng.com/public/uploads/preview/yamaha-white-sign-symbol-logo-icon-png-701751694969799modrhvqgjt.png?v=2026100920">
   <style>
     :root {
       --yamaha-navy: #050811;
@@ -131,7 +131,7 @@
       display: none;
     }
 
-    /* Model Selection Cards */
+    /* Compact Model Cards */
     .model-compact-card {
       background: #FFFFFF;
       border-radius: 10px;
@@ -170,7 +170,7 @@
       filter: drop-shadow(0 6px 6px rgba(0,0,0,0.12));
     }
     .model-card-title {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 800;
       color: #000000;
       display: flex;
@@ -566,13 +566,13 @@
   <!-- Header -->
   <header class="clean-header px-3 px-lg-4">
     <div class="container-fluid d-flex justify-content-between align-items-center">
-      <a href="home.html" class="text-decoration-none d-flex align-items-center gap-2 gap-md-3">
-        <img src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png" 
+      <a href="index.html" class="text-decoration-none d-flex align-items-center gap-2 gap-md-3">
+        <img src="https://www.citypng.com/public/uploads/preview/yamaha-white-sign-symbol-logo-icon-png-701751694969799modrhvqgjt.png?v=2026100920" 
              alt="Yamaha" class="brand-logo-symbol"
              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_Motor_logo.svg'">
         <div>
           <h1 class="h5 mb-0 font-racing text-white fw-bold">YAMAHA <span style="color:var(--yamaha-cyan);">SAI MOTORS</span></h1>
-          <span class="small text-secondary font-racing d-none d-sm-inline" style="letter-spacing:1px; font-size:0.75rem;">SHOWROOM & 360 STUDIO</span>
+          <span class="small text-secondary font-racing d-none d-sm-inline" style="letter-spacing:1px; font-size:0.75rem;">YEMMIGANUR SHOWROOM </span>
         </div>
       </a>
 
@@ -588,7 +588,7 @@
     <aside class="models-list-group p-3 desktop-sidebar">
       <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom border-secondary">
         <span class="font-racing text-cyan fw-bold" style="color:var(--yamaha-cyan); font-size:0.95rem;">Select Model</span>
-        <span class="badge bg-secondary" id="models-total-badge">12 Models</span>
+        <span class="badge bg-secondary" id="models-total-badge">11 Models</span>
       </div>
 
       <!-- Live Search -->
@@ -612,10 +612,10 @@
               <span class="badge bg-danger font-racing" id="stage-offer-badge">Festival Offer</span>
               <span class="text-secondary small font-racing" id="stage-variant-indicator">TRIM: TOP</span>
             </div>
-            <h2 class="display-6 fw-bold font-racing mb-0 text-white" id="stage-bike-title">R15M</h2>
+            <h2 class="display-6 fw-bold font-racing mb-0 text-white" id="stage-bike-title">R15 V4</h2>
             <div class="d-flex align-items-baseline gap-2 mt-1">
-              <span class="h3 font-racing fw-bold" style="color:var(--yamaha-cyan);" id="stage-bike-price">₹ 1,98,000</span>
-              <span class="text-secondary small">(Ex-Showroom)</span>
+              <span class="h3 font-racing fw-bold" style="color:var(--yamaha-cyan);" id="stage-bike-price">₹ 1,82,500</span>
+              <span class="text-secondary small">(On Road Price)</span>
             </div>
           </div>
           <div class="btn-group variant-btn-group" role="group">
@@ -783,6 +783,8 @@
         
         <form class="modal-body p-4" id="contact-inquiry-form" onsubmit="submitCustomerInquiry(event)">
           <div class="row g-3">
+            <h3>Mobail number : +91 7997739198</h3>
+            <h4>Address : Timmappa Colony ,Yemmiganur ,AP , Yamaha Showroom</h4>
             <div class="col-12 col-md-6">
               <label class="form-label small text-secondary fw-semibold">Full Name <span class="text-danger">*</span></label>
               <input type="text" class="form-control" id="cust-name" required placeholder="Enter full name">
@@ -839,183 +841,75 @@
   <script>
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6AXfxXV2lFBEiD6O88TvUpTEYwjbWAObXQzijUFKGKc9LpKXCoht0svqP5x0hek2W/exec";
 
-    // Showroom Catalog Database with Direct 40-Frame Sequences from your links
+    // Showroom Catalog Database
     let database = [
       {
-        id: "r15m",
-        name: "YAMAHA R15M",
-        subtitle: "RACE TO THE NEXT LEVEL",
-        bluetooth: true,
-        offer: "₹5,000 Exchange Bonus",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15m/360/40.webp",
-        prices: { basic: 198000, middle: 204000, top: 209000 },
-        specs: { displacement: "155 cc", maxPower: "18.4 bhp @ 10000 rpm", maxTorque: "14.2 Nm", topSpeed: "128 kmph", mileage: "45 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "460 km", ridingModes: "Track & Street", engineType: "Liquid Cooled 4V VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Metallic Grey", hex: "#8A8D8F", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15m/360/40.webp"] }
-        ],
-        accessories: [{ id: "acc-guard", name: "Engine Crash Guard", price: 2450, icon: "bi-shield" }],
-        insurance: [{ id: "ins-1yr", name: "Zero Dep Pack", price: 11400 }]
-      },
-      {
-        id: "r15v4",
-        name: "YAMAHA R15 V4",
-        subtitle: "RACE TO THE NEXT LEVEL",
-        bluetooth: true,
-        offer: "₹5,000 Exchange Bonus",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15v4/360/34.webp",
-        prices: { basic: 182500, middle: 187500, top: 197500 },
-        specs: { displacement: "155 cc", maxPower: "18.1 bhp @ 10000 rpm", maxTorque: "14.2 Nm", topSpeed: "125 kmph", mileage: "46 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "460 km", ridingModes: "Track & Street", engineType: "Liquid Cooled 4V VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Racing Blue", hex: "#0050FF", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15v4/360/34.webp"] }
-        ],
-        accessories: [{ id: "acc-guard", name: "Engine Crash Guard", price: 2450, icon: "bi-shield" }],
-        insurance: [{ id: "ins-1yr", name: "Zero Dep Pack", price: 11400 }]
-      },
-      {
-        id: "r15s",
-        name: "YAMAHA R15S",
-        subtitle: "WE R RACING PERFECTION",
-        bluetooth: false,
-        offer: "₹4,000 Student Discount",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15s/360/36.webp",
-        prices: { basic: 165000, middle: 168000, top: 171000 },
-        specs: { displacement: "155 cc", maxPower: "18.3 bhp", maxTorque: "14.1 Nm", topSpeed: "125 kmph", mileage: "46 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "460 km", ridingModes: "No", engineType: "Liquid Cooled VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Racing Black", hex: "#1A1A1A", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/r_series_all/r15s/360/36.webp"] }
-        ],
-        accessories: [{ id: "acc-slider", name: "Frame Sliders", price: 2100, icon: "bi-triangle" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7600 }]
-      },
-      {
-        id: "mt15v2",
-        name: "YAMAHA MT 15 V2",
-        subtitle: "THE DARK SIDE OF JAPAN",
-        bluetooth: true,
-        offer: "Free Certified Riding Helmet",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/mt_series/mt15v2/360/36.webp",
-        prices: { basic: 168000, middle: 173000, top: 179000 },
-        specs: { displacement: "155 cc", maxPower: "18.1 bhp", maxTorque: "14.1 Nm", topSpeed: "122 kmph", mileage: "48 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "480 km", ridingModes: "No", engineType: "Liquid Cooled SOHC", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Cyan Storm", hex: "#00F0FF", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/mt_series/mt15v2/360/36.webp"] }
-        ],
-        accessories: [{ id: "acc-tank", name: "MT Tank Pad", price: 650, icon: "bi-slash-circle" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7800 }]
-      },
-      {
-        id: "xsr155", 
-        name: "YAMAHA XSR 155", 
+        id: "xsr-155", 
+        name: "XSR 155", 
         subtitle: "BORN TO BE LEGEND",
         bluetooth: true,
         offer: "Zero Down Payment", 
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/x_series_all/xsr/360/37.webp",
+        videoUrl: '<iframe width="560" height="315" src="https://www.youtube.com/embed/OTOBP7kAiuA?si=tJPSWxm75MHHXDj3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+        view360Url: "",
+        view360Base: "https://yamaha-r2.yamaha-motor-india.com/assets/images/360/grey/1.webp",
         prices: { basic: 159000, middle: 164000, top: 169000 }, 
         specs: { displacement: "155 cc", maxPower: "19.0 bhp", maxTorque: "14.7 Nm", topSpeed: "120 kmph", mileage: "48 kmpl", transmission: "6 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper", ridingRange: "480 km", ridingModes: "No", engineType: "Liquid Cooled VVA", boreStroke: "58 x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" }, 
         colors: [
-          { name: "Heritage Silver", hex: "#A8A9AD", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/x_series_all/xsr/360/37.webp"] }
+          { name: "Heritage Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80"] },
+          { name: "Heritage Silver", hex: "#A8A9AD", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] }
         ], 
         accessories: [{ id: "acc-visor", name: "Retro Visor", price: 1400, icon: "bi-wind" }], 
         insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 7400 }] 
       },
       {
-        id: "fzs-fi-hybrid",
+        id: "fz-s-hybrid",
         name: "YAMAHA FZ-S HYBRID",
-        subtitle: "RACE TO THE NEXT LEVEL",
+        subtitle: "LOCK ",
         bluetooth: true,
         offer: "₹5,000 Exchange Bonus",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-hybrid/360-hybrid/36.webp",
+        videoUrl: "https://www.youtube.com/watch?v=OTOBP7kAiuA",
+        view360Url: "",
+        view360Base: "https://yamaha-r2.yamaha-motor-india.com/assets/images/360/grey/1.webp",
         prices: { basic: 129000, middle: 132000, top: 135000 },
-        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi TCS", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        specs: {
+          displacement: "149 cc", maxPower: "12.2 bhp @ 7250 rpm", maxTorque: "13.3 Nm",
+          topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed Manual",
+          transmissionType: "Chain Drive", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate",
+          ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi TCS",
+          boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1",
+          battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol"
+        },
         colors: [
-          { name: "Metallic Grey", hex: "#8A8D8F", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-hybrid/360-hybrid/36.webp"] }
+          { name: "Metallic White", hex: "#EAEAEA", images: ["https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1000&q=80"] },
+          { name: "Racing Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=80"] }
         ],
         accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
         insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6200 }]
       },
       {
-        id: "fz-rave",
-        name: "YAMAHA FZ-RAVE",
-        subtitle: "RIDE THE PULSE",
-        bluetooth: false,
-        offer: "₹3,000 Cashback",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-rave/360/36.webp",
-        prices: { basic: 119000, middle: 123000, top: 127000 },
-        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "47 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "No", engineType: "Air Cooled Fi", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Matte Blue", hex: "#0044EE", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-rave/360/36.webp"] }
-        ],
-        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 5800 }]
-      },
-      {
-        id: "fz-fi",
-        name: "YAMAHA FZ-FI",
-        subtitle: "LORD OF THE STREETS",
-        bluetooth: false,
-        offer: "Free 1 Year Service",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-fi/360/36.webp",
-        prices: { basic: 116000, middle: 119000, top: 122000 },
-        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "48 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "560 km", ridingModes: "No", engineType: "Air Cooled Fi", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Racing Black", hex: "#111111", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fz-fi/360/36.webp"] }
-        ],
-        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 5600 }]
-      },
-      {
-        id: "fzs-fi-v4",
-        name: "YAMAHA FZS-FI V4",
-        subtitle: "PERFORMANCE REDEFINED",
+        id: "r15-v4",
+        name: "R15 V4",
+        subtitle: "LOCK BICK",
         bluetooth: true,
         offer: "₹5,000 Exchange Bonus",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4/360/37.webp",
-        prices: { basic: 129000, middle: 132000, top: 135000 },
-        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi TCS", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
+        videoUrl: "https://www.youtube.com/watch?v=OTOBP7kAiuA",
+        view360Url: "",
+        view360Base: "https://yamaha-r2.yamaha-motor-india.com/assets/images/360/grey/1.webp",
+        prices: { basic: 182500, middle: 187500, top: 197500 },
+        specs: {
+          displacement: "155 cc", maxPower: "18.1 bhp @ 10000 rpm", maxTorque: "14.2 Nm",
+          topSpeed: "125 kmph", mileage: "46 kmpl", transmission: "6 Speed Manual",
+          transmissionType: "Chain Drive", gearShiftPattern: "1 Down 5 Up", clutch: "Assist & Slipper",
+          ridingRange: "460 km", ridingModes: "Track & Street", engineType: "1 Cylinder LC4V VVA",
+          boreStroke: "58 mm x 58.7 mm", compressionRatio: "11.6 : 1", sparkPlugs: "1",
+          battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol"
+        },
         colors: [
-          { name: "Metallic Red", hex: "#E60012", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4/360/37.webp"] }
+          { name: "Racing Blue", hex: "#0050FF", images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80"] },
+          { name: "Dark Knight", hex: "#1C1F26", images: ["https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1000&q=80"] }
         ],
-        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6200 }]
-      },
-      {
-        id: "fzs-fi-v4-std",
-        name: "YAMAHA FZS-FI V4 STD",
-        subtitle: "STREET INTELLIGENCE",
-        bluetooth: true,
-        offer: "Free Accessories Kit",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4-std/360/32.webp",
-        prices: { basic: 128000, middle: 131000, top: 134000 },
-        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "46 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "550 km", ridingModes: "TCS", engineType: "Air Cooled Fi TCS", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Matte Black", hex: "#1C1F26", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzs-fi-v4-std/360/32.webp"] }
-        ],
-        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6100 }]
-      },
-      {
-        id: "fzx-hybrid",
-        name: "YAMAHA FZ-X HYBRID",
-        subtitle: "CROSSOVER TO ADVENTURE",
-        bluetooth: true,
-        offer: "₹3,500 Cash Discount",
-        videoUrl: "https://www.youtube.com/watch?v=og860ziXQOQ",
-        view360Url: "https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzx-hybrid/360/36.webp",
-        prices: { basic: 137000, middle: 140000, top: 143000 },
-        specs: { displacement: "149 cc", maxPower: "12.2 bhp", maxTorque: "13.3 Nm", topSpeed: "115 kmph", mileage: "47 kmpl", transmission: "5 Speed", transmissionType: "Chain", gearShiftPattern: "1 Down 4 Up", clutch: "Multi-Plate", ridingRange: "540 km", ridingModes: "TCS", engineType: "Neo-Retro Crossover", boreStroke: "57.3 x 57.9 mm", compressionRatio: "9.6 : 1", sparkPlugs: "1", battery: "12V 4.0Ah", emissionStandard: "BS6 Phase 2B", fuelType: "Petrol" },
-        colors: [
-          { name: "Copper Metallic", hex: "#B87333", images: ["https://www.yamaha-motor-india.com/theme/v4/images/webp_images/fz_series_all/fzx-hybrid/360/36.webp"] }
-        ],
-        accessories: [{ id: "acc-guard", name: "Crash Guard", price: 1200, icon: "bi-shield" }],
-        insurance: [{ id: "ins-1yr", name: "Standard 1+4 Coverage", price: 6500 }]
+        accessories: [{ id: "acc-guard", name: "Engine Crash Guard", price: 2450, icon: "bi-shield" }],
+        insurance: [{ id: "ins-1yr", name: "Zero Dep Pack", price: 11400 }]
       }
     ];
 
@@ -1024,7 +918,7 @@
     let currentColorIdx = 0;
     let currentImgIdx = 0;
     let currentSearchTerm = "";
-    let activeMediaMode = 'photo'; // 'photo', 'video', or '360'
+    let activeMediaMode = 'photo';
     let selectedAccessories = new Set();
     let selectedInsuranceId = null;
 
@@ -1105,7 +999,7 @@
 
       filtered.forEach(({ bike, originalIndex }) => {
         const primaryColor = (bike.colors && bike.colors[0]) ? bike.colors[0] : null;
-        const imgUrl = (primaryColor && primaryColor.images && primaryColor.images[0]) ? primaryColor.images[0] : (bike.view360Url || "https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png");
+        const imgUrl = (primaryColor && primaryColor.images && primaryColor.images[0]) ? primaryColor.images[0] : "https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png";
         const isBluetooth = bike.bluetooth !== false;
 
         const card = document.createElement("div");
@@ -1113,13 +1007,13 @@
         card.onclick = () => selectModel(originalIndex);
         card.innerHTML = `
           <div class="model-card-thumb-wrap">
-            <img src="${imgUrl}" alt="${bike.name}" class="model-card-thumb-img" onerror="this.src='https://placehold.co/400x250/0E1626/00F0FF?text=Yamaha+Bike'">
+            <img src="${imgUrl}" alt="${bike.name}" class="model-card-thumb-img">
           </div>
           <div class="model-card-title">
             ${bike.name}
             ${isBluetooth ? '<i class="bi bi-bluetooth text-primary" style="font-size:0.95rem;"></i>' : ''}
           </div>
-          <div class="model-card-tagline">${bike.subtitle || 'RACE TO THE NEXT LEVEL'}</div>
+          <div class="model-card-tagline">${bike.subtitle || 'LOCK BICK'}</div>
           <button class="btn-find-more" onclick="event.stopPropagation(); selectModel(${originalIndex});">Find More</button>
         `;
         container.appendChild(card);
@@ -1140,7 +1034,7 @@
 
       filtered.forEach(({ bike, originalIndex }) => {
         const primaryColor = (bike.colors && bike.colors[0]) ? bike.colors[0] : null;
-        const imgUrl = (primaryColor && primaryColor.images && primaryColor.images[0]) ? primaryColor.images[0] : (bike.view360Url || "https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png");
+        const imgUrl = (primaryColor && primaryColor.images && primaryColor.images[0]) ? primaryColor.images[0] : "https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154896.png";
         const isBluetooth = bike.bluetooth !== false;
 
         const card = document.createElement("div");
@@ -1152,13 +1046,13 @@
         };
         card.innerHTML = `
           <div class="model-card-thumb-wrap">
-            <img src="${imgUrl}" alt="${bike.name}" class="model-card-thumb-img" onerror="this.src='https://placehold.co/400x250/0E1626/00F0FF?text=Yamaha+Bike'">
+            <img src="${imgUrl}" alt="${bike.name}" class="model-card-thumb-img">
           </div>
           <div class="model-card-title">
             ${bike.name}
             ${isBluetooth ? '<i class="bi bi-bluetooth text-primary"></i>' : ''}
           </div>
-          <div class="model-card-tagline">${bike.subtitle || 'RACE TO THE NEXT LEVEL'}</div>
+          <div class="model-card-tagline">${bike.subtitle || 'LOCK BICK'}</div>
           <button class="btn-find-more">Find More</button>
         `;
         container.appendChild(card);
@@ -1229,7 +1123,7 @@
     }
 
     // =========================================================================
-    // DYNAMIC 40-FRAME 360 ENGINE: PARSES ANY LINK TO LOAD {1..40}.webp
+    // DYNAMIC 40-FRAME 360 ROTATION ENGINE
     // =========================================================================
     function mountAdaptive360Viewer() {
       const bike = database[currentModelIdx];
@@ -1237,13 +1131,15 @@
       const turntableControls = document.getElementById("turntable-controls-wrap");
       box360.innerHTML = "";
 
-      // Check if interactive iframe link (e.g., BikeDekho 360 view)
-      if (bike.view360Url && bike.view360Url.trim().length > 5 && (bike.view360Url.includes(".html") || bike.view360Url.includes("bikedekho"))) {
+      const rawVal = (bike && (bike.view360Url || bike.view360Base)) ? (bike.view360Url || bike.view360Base).trim() : "";
+
+      // Check if interactive iframe link (BikeDekho)
+      if (rawVal.includes(".html") || rawVal.includes("bikedekho")) {
         if (turntableControls) turntableControls.classList.add("d-none");
         box360.innerHTML = `
           <iframe 
-            src="${bike.view360Url.trim()}" 
-            title="${bike.name} 360 Degree View" 
+            src="${rawVal}" 
+            title="${bike.name} 360 View" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen 
             class="w-100 h-100 border-0">
@@ -1252,7 +1148,7 @@
         return;
       }
 
-      // 40-Frame Interactive Sequence
+      // Default: 40-Frame Interactive Sequence
       if (turntableControls) turntableControls.classList.remove("d-none");
       box360.innerHTML = `
         <div class="viewer-360-canvas-box" id="box-360-user-viewer">
@@ -1273,29 +1169,20 @@
       setUser360Frame(1);
     }
 
-    // Deconstructs any image URL to extract base path and dynamically inject frame numbers
+    // Smart 360 URL Extractor (extracts folder pattern and substitutes frame index 1..40)
     function getSmart360Url(frameNum) {
       const bike = database[currentModelIdx];
-      let raw = (bike && (bike.view360Url || bike.view360Base)) ? (bike.view360Url || bike.view360Base).trim() : "";
+      let rawBase = (bike && (bike.view360Base || bike.view360Url)) ? (bike.view360Base || bike.view360Url).trim() : "";
 
-      if (!raw || raw.length < 5) {
-        raw = "https://yamaha-r2.yamaha-motor-india.com/assets/images/360/grey/1.webp";
+      if (!rawBase || rawBase.length < 5) {
+        rawBase = "https://yamaha-r2.yamaha-motor-india.com/assets/images/360/grey/";
       }
 
-      // Regex matches any trailing number with extension (e.g., /40.webp, /36.webp, /1.jpg)
-      const numMatch = raw.match(/^(.*\/)(\d+)\.(webp|png|jpg|jpeg)$/i);
-      if (numMatch) {
-        const basePath = numMatch[1];
-        const ext = numMatch[3];
-        return `${basePath}${frameNum}.${ext}`;
-      }
+      // Strip ending file pattern like 1.webp, 01.png, 1.jpg
+      rawBase = rawBase.replace(/\d+\.(webp|png|jpg|jpeg)$/i, '');
 
-      // If directory path ending with slash
-      if (raw.endsWith("/")) {
-        return `${raw}${frameNum}.webp`;
-      }
-
-      return `${raw}/${frameNum}.webp`;
+      if (!rawBase.endsWith("/")) rawBase += "/";
+      return `${rawBase}${frameNum}.webp`;
     }
 
     function setUser360Frame(index) {
@@ -1386,50 +1273,48 @@
     }
 
     // =========================================================================
-    // YOUTUBE VIDEO LOADER (ERROR 153 WORKAROUND)
+    // PROVEN YOUTUBE EMBED ENGINE (SUPPORTS FULL IFRAME CODE OR LINK)
     // =========================================================================
     function mountUniversalVideoPlayer() {
-  const bike = database[currentModelIdx];
-  const videoBox = document.getElementById("video-display-container");
-  videoBox.innerHTML = "";
+      const bike = database[currentModelIdx];
+      const videoBox = document.getElementById("video-display-container");
+      videoBox.innerHTML = "";
 
-  const rawUrl = (bike && bike.videoUrl) ? bike.videoUrl.trim() : "https://www.youtube.com/watch?v=og860ziXQOQ";
-  const ytMatch = rawUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
+      let rawUrl = (bike && bike.videoUrl) ? bike.videoUrl.trim() : "https://www.youtube.com/watch?v=OTOBP7kAiuA";
+      
+      // If user pasted a full <iframe ... src="..."> snippet, extract the src URL
+      if (rawUrl.includes("<iframe") && rawUrl.includes("src=")) {
+        const srcMatch = rawUrl.match(/src=["']([^"']+)["']/i);
+        if (srcMatch && srcMatch[1]) {
+          rawUrl = srcMatch[1];
+        }
+      }
 
-  if (ytMatch && ytMatch[1]) {
-    const videoId = ytMatch[1];
-    
-    // Check if running on local file:// protocol which triggers Error 153
-    const isLocalFile = window.location.protocol === 'file:';
+      // Match YouTube IDs safely from shorts, embed, youtu.be, or watch links
+      const ytMatch = rawUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
 
-    videoBox.innerHTML = `
-      <div class="w-100 h-100 position-relative bg-black d-flex align-items-center justify-content-center">
-        <iframe 
-          src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&controls=1&rel=0" 
-          title="${bike.name} Video" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          class="w-100 h-100 border-0"
-          allowfullscreen>
-        </iframe>
-        ${isLocalFile ? `
-          <div style="position: absolute; bottom: 12px; right: 12px; z-index: 10;">
-            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="btn btn-sm btn-danger font-racing">
-              <i class="bi bi-box-arrow-up-right me-1"></i> Watch on YouTube
-            </a>
-          </div>
-        ` : ''}
-      </div>
-    `;
-  } else {
-    // Direct MP4 / HTML5 stream
-    videoBox.innerHTML = `
-      <video autoplay muted loop playsinline controls class="w-100 h-100 object-fit-cover">
-        <source src="${rawUrl}">
-        Your browser does not support HTML5 video preview.
-      </video>
-    `;
-  }
-}
+      if (ytMatch && ytMatch[1]) {
+        const videoId = ytMatch[1];
+        videoBox.innerHTML = `
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&controls=1&enablejsapi=1" 
+            title="${bike.name} Walkaround Video" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            class="w-100 h-100 border-0"
+            allowfullscreen>
+          </iframe>
+        `;
+      } else {
+        // Direct MP4 / HTML5 stream or Base64
+        videoBox.innerHTML = `
+          <video autoplay muted loop playsinline controls class="w-100 h-100">
+            <source src="${rawUrl}">
+            Your browser does not support HTML5 video preview.
+          </video>
+        `;
+      }
+    }
 
     function renderStage(idx) {
       const bike = database[idx];
